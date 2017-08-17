@@ -28,9 +28,8 @@ Your Web application should include the following:
 - Create several **modules** and use them in the **routing**.
 - All of the data should be loaded from a `web server` using **services**.
   - You can either use `Firebase`, `Kinvey` or any other back-end service.
-  - Or you can use your own server written on `Node.js`, `ASP.NET WebAPI` or any other technology.
-
-- Unit test at **least 2 component**.
+  - Or you can use your own server written in `Node.js`, `ASP.NET WebAPI` or any other technology.
+- Unit test at **least 2 components**.
 - Integration test at **least 1 module**.
 
 - Implement responsive UI using Bootstrap 3 or 4, or Materialize.
@@ -71,4 +70,4 @@ The public defense includes:
 
 ### Give Feedback about Your Teammates
 
-You will be invited to **provide feedback** about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is a mandatory, important part of the project evaluation, so **take it seriously**. You will be provided a template, by which to write your review.
++You will be invited to **provide feedback** about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is a mandatory, important part of the project evaluation, so **take it seriously**. You will be provided a template, by which to write your review.
