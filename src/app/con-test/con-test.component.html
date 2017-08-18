@@ -1,0 +1,12 @@
+<!-- // FOR TESTING THE CONNECTION WITH FIREBASE (FOR DELETION) -->
+<div style="text-align:center">
+<h1>
+
+  <ul>
+    List of Items:
+    <li *ngFor="let test of tests | async" style="list-style-type: none">
+      {{test.$value}}
+    </li>
+  </ul>
+</h1>
+</div>
