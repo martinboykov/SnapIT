@@ -1,0 +1,14 @@
+.navbar-brand .logo {
+    max-height: 30px;
+    margin-top: -7px;
+    display: inline-block;
+}
+
+nav.navbar {
+    padding-bottom: 55px;
+}
+
+@media only screen and (max-width: 768px ) {
+    .glyphicon-search {display: none;}
+    .glyphicon-cloud-upload {display: none;}
+}
