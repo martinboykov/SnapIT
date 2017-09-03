@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     LoginComponent,
     HomeComponent,
     StatisticsComponent,
+    InfoComponent,
 
 
   ],
