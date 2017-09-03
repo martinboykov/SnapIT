@@ -18,9 +18,11 @@ import { InfoComponent } from './components/info/info.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ImageComponent } from './components/gallery/image/image.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'statistics', component: StatisticsComponent },
   { path: 'info', component: InfoComponent },
   { path: 'gallery', component: GalleryComponent },
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'image', component: ImageComponent },
+  { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/page-not-found' },
 
 ];
 @NgModule({
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
     GalleryComponent,
     ImageComponent,
     UploadComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [
