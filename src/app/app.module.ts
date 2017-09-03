@@ -14,6 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { InfoComponent } from './components/info/info.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { ImagesComponent } from './components/gallery/images/images.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { InfoComponent } from './components/info/info.component';
     HomeComponent,
     StatisticsComponent,
     InfoComponent,
+    GalleryComponent,
+    ImagesComponent,
 
 
   ],
