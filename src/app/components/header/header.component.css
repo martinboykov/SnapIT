@@ -1,14 +1,48 @@
-.navbar-brand .logo {
+.navbar-default {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border:0px;
+}
+
+.logo {
     max-height: 30px;
-    margin-top: -7px;
-    display: inline-block;
+    margin-top: -5px;
+    margin-right: 5px;
+    float: left;
 }
 
-nav.navbar {
-    padding-bottom: 55px;
+a>span {
+    color: white;
+}
+div>a>span {
+    color: white;
 }
 
-@media only screen and (max-width: 768px ) {
-    .glyphicon-search {display: none;}
-    .glyphicon-cloud-upload {display: none;}
+ul>li>a {
+    color: white;
+    max-height: 53px;
+
 }
+
+a>div>span {
+    color: white;
+}
+
+
+ul>li>a {
+
+    border-bottom: 3px solid black;
+}
+ul>li>a:hover {
+
+    border-bottom: 3px solid white;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+
