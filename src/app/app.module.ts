@@ -16,6 +16,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { InfoComponent } from './components/info/info.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ImagesComponent } from './components/gallery/images/images.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ImagesComponent } from './components/gallery/images/images.component';
     InfoComponent,
     GalleryComponent,
     ImagesComponent,
+    UploadComponent,
 
 
   ],
