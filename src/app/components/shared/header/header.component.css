@@ -5,6 +5,20 @@
     border: 0px;
 }
 
+
+
+.navbar-fixed-top .active a{
+    background-color: black;
+    border-bottom: 5px solid white;
+    color: white;
+
+
+}
+
+
+
+
+
 .logo {
     max-height: 30px;
     margin-top: -5px;
@@ -30,11 +44,11 @@ a>div>span {
 }
 
 ul>li>a {
-    border-bottom: 3px solid black;
+    border-bottom: 5px solid black;
 }
 
 ul>li>a:hover {
-    border-bottom: 3px solid white;
+    border-bottom: 5px solid white;
 }
 
 @media only screen and (max-width: 768px) {
@@ -42,5 +56,3 @@ ul>li>a:hover {
         display: none;
     }
 }
-
-

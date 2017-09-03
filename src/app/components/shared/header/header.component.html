@@ -14,40 +14,53 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand"
-             href="#"
-             title="TheUnevenKangaroo">
-            <div class="wrapper">
-              <img src="./assets/img/logo.png"
-                   class="logo"><span>SnapIT</span>
-            </div>
-          </a>
+        <a class="navbar-brand"
+           [routerLink]="['/']"
+           title="TheUnevenKangaroo">
+          <div class="wrapper">
+            <img src="./assets/img/logo.png"
+                 class="logo"><span>SnapIT</span>
+          </div>
+        </a>
       </div>
 
       <div id="navbar"
            class="collapse navbar-collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Statistics</a></li>
-          <li><a href="#">Info</a></li>
+          <li routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/']">
+                Home
+              </a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/statistics']">
+                Statistics
+              </a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/info']">
+                Info
+              </a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="#">
+          <li routerLinkActive="active">
+            <a [routerLink]="['/gallery']">
                 <span class="glyphicon glyphicon-filter desctop-only" aria-hidden="true"></span>
                 <span >Filter</span>
             </a>
           </li>
-          <li>
+          <li routerLinkActive="active">
             <!-- only for logged in users -->
-            <a href="#">
+            <a [routerLink]="['/upload']">
                 <span class="glyphicon glyphicon-cloud-upload desctop-only" aria-hidden="true"></span>
                 <span >Upload</span>
             </a>
           </li>
-          <li>
+          <li routerLinkActive="active">
             <!-- only when logged out -->
-            <a href="#">Log In</a>
+            <a [routerLink]="['/login']">Log In</a>
             <!-- only when logged in -->
             <!-- <a href="#">Log Out</a> -->
           </li>

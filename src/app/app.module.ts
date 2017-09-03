@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/firebase';
@@ -15,9 +16,20 @@ import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { InfoComponent } from './components/info/info.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { ImagesComponent } from './components/gallery/images/images.component';
+import { ImageComponent } from './components/gallery/image/image.component';
 import { UploadComponent } from './components/upload/upload.component';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'statistics', component: StatisticsComponent },
+  { path: 'info', component: InfoComponent },
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'upload', component: UploadComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'image', component: ImageComponent },
+
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,14 +42,15 @@ import { UploadComponent } from './components/upload/upload.component';
     StatisticsComponent,
     InfoComponent,
     GalleryComponent,
-    ImagesComponent,
+    ImageComponent,
     UploadComponent,
 
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
