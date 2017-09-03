@@ -6,10 +6,10 @@ import { firebase } from '../environments/firebase';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components//shared/header/header.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
@@ -32,7 +32,6 @@ import { UploadComponent } from './components/upload/upload.component';
     GalleryComponent,
     ImagesComponent,
     UploadComponent,
-
 
   ],
   imports: [
