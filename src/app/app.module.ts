@@ -21,6 +21,8 @@ import { UploadComponent } from './components/upload/upload.component';
     ContactsComponent,
     FooterComponent,
     UploadComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
