@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
     RegisterComponent,
     ContactsComponent,
     FooterComponent,
-    FooterComponent,
+    LoginComponent,
+    HomeComponent,
+
 
   ],
   imports: [

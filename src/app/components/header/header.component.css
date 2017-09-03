@@ -2,7 +2,7 @@
     background-color: black;
     color: white;
     font-size: 16px;
-    border:0px;
+    border: 0px;
 }
 
 .logo {
@@ -15,6 +15,7 @@
 a>span {
     color: white;
 }
+
 div>a>span {
     color: white;
 }
@@ -22,25 +23,22 @@ div>a>span {
 ul>li>a {
     color: white;
     max-height: 53px;
-
 }
 
 a>div>span {
     color: white;
 }
 
-
 ul>li>a {
-
     border-bottom: 3px solid black;
 }
-ul>li>a:hover {
 
+ul>li>a:hover {
     border-bottom: 3px solid white;
 }
 
 @media only screen and (max-width: 768px) {
-    .mobile-only {
+    .desctop-only {
         display: none;
     }
 }
