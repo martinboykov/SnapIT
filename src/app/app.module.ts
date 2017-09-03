@@ -1,6 +1,8 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/firebase';
@@ -20,20 +22,7 @@ import { ImageComponent } from './components/gallery/image/image.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
-const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'info', component: InfoComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'upload', component: UploadComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'image', component: ImageComponent },
-  { path: 'page-not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/page-not-found' },
 
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +44,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
