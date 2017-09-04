@@ -2,15 +2,29 @@
     <div class="row vertical-offset-100">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default blur-box">
-                <div class="panel-heading text-center panel-relative">
+                <div class="panel-heading text-center panel-relative desktop-only">
+                    <button type="button"
+                            class="btn btn-default"
+                            (click)="onClickToLogin()">
+                                    LOGIN
+                            </button>
+                    <button type="button"
+                            class="btn btn-default"
+                            (click)="onClickToRegister()">
+                                    REGISTER
+                            </button>
+                </div>
+
+                <div class="panel-heading text-center panel-relative mobile-only">
                     <h3 class="panel-title">
                         <a [routerLink]="['/login']">
-                            LOGIN
-                        </a> |
+                                    LOGIN
+                                </a> |
                         <a [routerLink]="['/register']">
-                            REGISTER
-                        </a></h3>
+                                    REGISTER
+                                </a></h3>
                 </div>
+
                 <div class="panel-body blur-box">
                     <form action="/users/login"
                           method="post">
