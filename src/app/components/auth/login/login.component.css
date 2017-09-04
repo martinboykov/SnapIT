@@ -1,3 +1,7 @@
+.container {
+    margin-top: 100px;
+}
+
 .panel-heading {
     height: 60px;
     background-color: transparent;
@@ -11,14 +15,16 @@
 .btn-success {
     margin-bottom: -15px;
 }
+
 @media only screen and (max-width: 378px) {
     .desktop-only {
         display: none;
     }
-    .panel-title{
+    .panel-title {
         margin-top: 10px;
     }
 }
+
 @media only screen and (min-width: 378px) {
     .mobile-only {
         display: none;
