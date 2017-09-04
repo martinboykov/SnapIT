@@ -1,10 +1,16 @@
-.navbar{
+.navbar {
     margin: 0px;
     border: 0px;
 }
-.navbar-static{
+
+.navbar-static {
     margin: 0px;
     border: 0px;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+    background-color: black;
 }
 
 .navbar-default {
@@ -14,14 +20,11 @@
     border: 0px;
 }
 
-
-
-.navbar-static .active a{
+.navbar-static .active a {
     background-color: black;
     border-bottom: 5px solid white;
     color: white;
 }
-
 
 .logo {
     max-height: 30px;
