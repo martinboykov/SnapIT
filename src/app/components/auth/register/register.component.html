@@ -3,28 +3,28 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default blur-box">
                 <div class="panel-heading">
-                        <div class="panel-heading text-center panel-relative desktop-only">
-                                <button type="button"
-                                        class="btn btn-default"
-                                        (click)="onClickToLogin()">
-                                                LOGIN
+                    <div class="panel-heading text-center panel-relative desktop-only">
+                        <button type="button"
+                                class="btn btn-default"
+                                (click)="onClickToLogin()">
+                                                Login
                                         </button>
-                                <button type="button"
-                                        class="btn btn-default"
-                                        (click)="onClickToRegister()">
-                                                REGISTER
+                        <button type="button"
+                                class="btn btn-default"
+                                (click)="onClickToRegister()">
+                                                Register
                                         </button>
-                            </div>
+                    </div>
 
-                            <div class="panel-heading text-center panel-relative mobile-only">
-                                <h3 class="panel-title">
-                                    <a [routerLink]="['/login']">
-                                                LOGIN
+                    <div class="panel-heading text-center panel-relative mobile-only">
+                        <h3 class="panel-title">
+                            <a [routerLink]="['/login']">
+                                        Login
                                             </a> |
-                                    <a [routerLink]="['/register']">
-                                                REGISTER
+                            <a [routerLink]="['/register']">
+                                        Register
                                             </a></h3>
-                            </div>
+                    </div>
                 </div>
                 <div class="panel-body blur-box">
                     <form action="/users/register"
@@ -83,7 +83,7 @@
                             </div>
                             <input class="btn btn-lg btn-success btn-block"
                                    type="submit"
-                                   value="REGISTER">
+                                   value="Register">
                             <!-- <input #user-form-btn-register class="btn btn-lg btn-success btn-block" type="submit" value="REGISTER"> -->
                         </fieldset>
                     </form>
