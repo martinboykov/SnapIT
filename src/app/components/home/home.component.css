@@ -1,7 +1,7 @@
 
 /* Carousel Styles */
 #carousel-example-generic{
-    margin-top: -20px;
+    margin-top: -2px;
 }
 .carousel-inner img {
     width: 100%;
@@ -20,14 +20,6 @@
 	background-repeat: no-repeat;
 	text-shadow: none;
 }
-
-/* .carousel-control.left span {
-	padding: 15px;
-}
-
-.carousel-control.right span {
-	padding: 15px;
-} */
 
 .carousel-control .glyphicon-chevron-left,
 .carousel-control .glyphicon-chevron-right,
