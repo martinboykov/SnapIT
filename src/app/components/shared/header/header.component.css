@@ -1,3 +1,10 @@
+.navbar{
+    margin: 0px;
+}
+.navbar-static{
+    margin: 0px;
+}
+
 .navbar-default {
     background-color: black;
     color: white;
@@ -7,12 +14,10 @@
 
 
 
-.navbar-fixed-top .active a{
+.navbar-static .active a{
     background-color: black;
     border-bottom: 5px solid white;
     color: white;
-
-
 }
 
 
