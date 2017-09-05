@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  errorMsg: string;
+
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
@@ -24,9 +26,8 @@ export class RegisterComponent implements OnInit {
 
   // authorisation
   onSignup(form: NgForm) {
-    // const username = form.value.username;
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.signupUser(email, password);
+    this.authService.signupUser(form)
+      .then(resolve => this.router.navigate(['/home']))
+      .catch(error => this.errorMsg = error.message);
   }
 }

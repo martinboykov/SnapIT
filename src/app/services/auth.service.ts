@@ -1,70 +1,53 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
+
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 
 @Injectable()
 export class AuthService {
   // token: string;
 
-  constructor(private router: Router, private angularFireAuth: AngularFireAuth) { }
+  authState: any = null;
 
-  // signupUser(email: string, password: string) {
-  //   firebase.auth().createUserWithEmailAndPassword(email, password)
-  //     .catch(
-  //     error => console.log(error)
-  //     );
-  // }
-  signupUser(email: string, password: string) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
-      // .then((user) => {
-      //   this.authState = user
-      //   this.updateUserData()
-      // })
+  constructor(private angularFireAuth: AngularFireAuth,
+    private db: AngularFireDatabase,
+    private router: Router) {
+
+    this.angularFireAuth.authState.subscribe((auth) => {
+      this.authState = auth;
+    });
+  }
+  // Returns true if user is logged in
+  get authenticated(): boolean {
+    return this.authState !== null;
+  }
+  // Returns current user UID
+  get currentUserId(): string {
+    return this.authenticated ? this.authState.uid : '';
+  }
+
+  signupUser(user) {
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(user.value.email, user.value.password)
+      .then((newUser) => {
+        this.authState = newUser;
+        // Endpoint on firebase
+        const path = `users/${this.currentUserId}`;
+        const data = {
+          email: this.authState.email,
+          name: user.value.username
+        };
+
+        this.db.object(path).update(data)
+          .catch(error => console.log(error));
+      })
       .catch(error => console.log(error));
   }
 
   loginUser(email: string, password: string) {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
   }
-  // loginUser(email: string, password: string) {
-  //   return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
-  //     // .then((user) => {
-  //     //   this.authState = user
-  //     //   this.updateUserData()
-  //     // })
-  //     .catch(error => console.log(error));
-  // }
-
-  // signinUser(email: string, password: string) {
-  //   firebase.auth().signInWithEmailAndPassword(email, password)
-  //     .then(
-  //     response => {
-  //       this.router.navigate(['/home']);
-  //       firebase.auth().currentUser.getToken()
-  //         .then(
-  //         (token: string) => this.token = token);
-  //     })
-  //     .catch(
-  //     error => console.log(error)
-  //     );
-  // }
-
-  // logout() {
-  //   firebase.auth().signOut();
-  //   this.token = null;
-  // }
-
-  // getToken() {
-  //   firebase.auth().currentUser.getToken()
-  //     .then(
-  //     (token: string) => this.token = token
-  //     );
-  //   return this.token;
-  // }
-
-  // isAuthenticated() {
-  //   return this.token != null;
-  // }
 }
+
