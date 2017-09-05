@@ -4,14 +4,10 @@
             <div class="panel panel-default blur-box">
                 <div class="panel-heading">
                     <div class="panel-heading text-center panel-relative desktop-only">
-                        <button type="button"
-                                class="btn btn-default"
-                                (click)="onClickToLogin()">
+                        <button type="button" class="btn btn-default" (click)="onClickToLogin()">
                                                 Login
                                         </button>
-                        <button type="button"
-                                class="btn btn-default"
-                                (click)="onClickToRegister()">
+                        <button type="button" class="btn btn-default" (click)="onClickToRegister()">
                                                 Register
                                         </button>
                     </div>
@@ -27,10 +23,9 @@
                     </div>
                 </div>
                 <div class="panel-body blur-box">
-                    <form action="/users/register"
-                          method="post">
+                    <form (ngSubmit)="onSignup(f)" #f="ngForm">
                         <fieldset>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="username">
                                     USERNAME:
                                 </label>
@@ -43,33 +38,20 @@
                                        title="Please
                                     provide a username between 3 and 100 symbols long."
                                        required="required">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="email">
                                     E-MAIL:
                                 </label>
-                                <input class="form-control"
-                                       placeholder="E-mail"
-                                       name="email"
-                                       type="email"
-                                       required="required">
+                                <input placeholder="E-mail" name="email" type="email" ngModel class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password">
                                     PASSWORD:
                                 </label>
-                                <input class="form-control"
-                                       id="password"
-                                       placeholder="Password"
-                                       name="password"
-                                       type="password"
-                                       value=""
-                                       pattern="^ ?=.*[A-Za-z] ?=.*\\d[A-Za-z\\d]{6,}$"
-                                       title="The password must be at least 6 characters long, containing at least 1 numeric type symbol"
-
-                                       required="required">
+                                <input id="password" placeholder="Password" name="password" type="password" ngModel class="form-control">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="password-confirm">
                                     PASSWORD CONFIRMATION:
                                 </label>
@@ -79,11 +61,13 @@
                                        name="password-confirm"
                                        type="password"
                                        value=""
-                                       required="required">
-                            </div>
-                            <input class="btn btn-lg btn-success btn-block"
-                                   type="submit"
-                                   value="Register">
+                                       required="required"
+                                       class="form-control">
+                            </div> -->
+
+                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
+                            <!-- <button class="btn btn-lg btn-success btn-block"
+                                type="submit">Register</button> -->
                             <!-- <input #user-form-btn-register class="btn btn-lg btn-success btn-block" type="submit" value="REGISTER"> -->
                         </fieldset>
                     </form>

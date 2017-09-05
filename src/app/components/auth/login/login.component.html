@@ -3,14 +3,10 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default blur-box">
                 <div class="panel-heading text-center panel-relative desktop-only">
-                    <button type="button"
-                            class="btn btn-default"
-                            (click)="onClickToLogin()">
+                    <button type="button" class="btn btn-default" (click)="onClickToLogin()">
                                     Login
                             </button>
-                    <button type="button"
-                            class="btn btn-default"
-                            (click)="onClickToRegister()">
+                    <button type="button" class="btn btn-default" (click)="onClickToRegister()">
                                     Register
                             </button>
                 </div>
@@ -26,29 +22,19 @@
                 </div>
 
                 <div class="panel-body blur-box">
-                    <form action="/users/login"
-                          method="post">
+                    <form (ngSubmit)="onLogin(f)" #f="ngForm">
                         <fieldset>
                             <div class="form-group">
-                                <label for="username">
-                                  USERNAME:
+                                <label for="email">
+                                  EMAIL:
                               </label>
-                                <input class="form-control"
-                                       placeholder="Username"
-                                       name="username"
-                                       type="text"
-                                       required="required">
+                                <input placeholder="Email" name="email" type="text" ngModel class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password">
                                   PASSWORD:
                               </label>
-                                <input class="form-control"
-                                       placeholder="Password"
-                                       name="password"
-                                       type="password"
-                                       value=""
-                                       required="required">
+                                <input placeholder="Password" name="password" type="password" ngModel class="form-control">
                                 <br>
                                 <div class="help-links">
                                     <span class="forgotten-pass">
@@ -66,10 +52,8 @@
                                       Remember Me
                               </label>
                                 </div> -->
-                                <input id="user-form-btn-login"
-                                       class="btn btn-lg btn-success btn-block"
-                                       type="submit"
-                                       value="Login">
+
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                             </div>
                         </fieldset>
                     </form>
