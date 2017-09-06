@@ -73,24 +73,28 @@
           </h3>
           <br>
           <div class="lg-below md-below">
-            <a class="btn btn-theme btn-sm btn-min-block"
-               href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block"
-               href="#">Register</a></div>
+            <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a>
+            <a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a>
+          </div>
         </div>
       </div>
       <!-- /header-text -->
     </div>
   </div>
   <!-- Controls -->
-  <a class="left carousel-control"
-     href="#carousel-example-generic"
-     data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-  <a class="right carousel-control"
-     href="#carousel-example-generic"
-     data-slide="next">
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
+  </a>
 </div>
 <!-- /carousel -->
+<div>
+  <h2>Latest Pictures</h2>
+  <div>
+      <div *ngFor="let upload of latestUploads">
+        {{upload}}
+      </div>
+  </div>
+</div>

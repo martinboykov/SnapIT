@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProfileComponent implements OnInit {
+
+  // get the data through a service from the database - hardcoded data only for test
   id = 1;
   username = 'Misha_90';
   firstName = 'Mihaela';
@@ -17,6 +19,14 @@ export class ProfileComponent implements OnInit {
   profilePicUrl = 'http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png';
   editHref = 'user/edit/' + this.id;
   constructor() { }
+
+  getUserUploads() {
+    // implement getting users uploads from DB when user is authenticated
+  }
+
+  getUserFavourites() {
+    // implement getting users favourites from DB when user is authenticated
+  }
 
   ngOnInit() {
   }
