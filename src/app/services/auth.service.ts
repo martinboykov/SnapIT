@@ -27,15 +27,16 @@ export class AuthService {
     return this.authenticated ? this.authState.uid : '';
   }
 
-  signupUser(user) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(user.value.email, user.value.password)
+
+  signupUser(signupForm) {
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(signupForm.value.email, signupForm.value.password)
       .then((newUser) => {
         this.authState = newUser;
         // Endpoint on firebase
         const path = `users/${this.currentUserId}`;
         const data = {
-          email: user.value.email,
-          name: user.value.username
+          email: this.authState.email,
+          name: signupForm.value.username
         };
 
         this.db.object(path).update(data)

@@ -31,3 +31,6 @@
         display: none;
     }
 }
+.invalidData{
+    color: red;
+}

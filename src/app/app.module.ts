@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
 import { AngularFireModule } from 'angularfire2';
@@ -46,6 +46,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
     AppRoutingModule,

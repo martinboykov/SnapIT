@@ -3,10 +3,14 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default blur-box">
                 <div class="panel-heading text-center panel-relative desktop-only">
-                    <button type="button" class="btn btn-default" (click)="onClickToLogin()">
+                    <button type="button"
+                        class="btn btn-default"
+                        (click)="onClickToLogin()">
                                     <strong>LOGIN</strong>
                             </button>
-                    <button type="button" class="btn btn-default" (click)="onClickToRegister()">
+                    <button type="button"
+                        class="btn btn-default"
+                        (click)="onClickToRegister()">
                         <strong>REGISTER</strong>
                             </button>
                 </div>
@@ -21,29 +25,43 @@
                 </div>
 
                 <div class="panel-body blur-box">
-                    <form (ngSubmit)="onLogin(f)" #f="ngForm">
+                    <form [formGroup]="loginForm"
+                        (ngSubmit)="login()">
                         <fieldset>
                             <div class="form-group">
                                 <label for="email">
                                   EMAIL:
                               </label>
-                                <input placeholder="Email" name="email" type="text" ngModel class="form-control">
+                                <input type="text"
+                                    id="email"
+                                    formControlName="email"
+                                    class="form-control"
+                                    placeholder="E-mail"
+                                    maxlength="40">
                             </div>
                             <div class="form-group">
                                 <label for="password">
                                   PASSWORD:
                               </label>
-                                <input placeholder="Password" name="password" type="password" ngModel class="form-control">
+                                <input type="password"
+                                    id="password"
+                                    formControlName="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    maxlength="16">
                                 <br>
                                 <div class="help-links">
                                     <span class="forgotten-pass">
-                                  <a href="/lostpass">
-                                       Forgot your password?
-                                  </a>
-                              </span>
-
+                                        <a href="/lostpass">
+                                            Forgot your password?
+                                        </a>
+                                    </span>
                                 </div>
                                 <br>
+                                <p *ngIf="errorMsg"
+                                    class="invalidData">
+                                    Invalid Email or Password!
+                                </p>
                                 <!-- not sure if we'll be able to implement this -->
                                 <!-- <div class="checkbox">
                                     <label>
@@ -52,7 +70,9 @@
                               </label>
                                 </div> -->
 
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                <input class="btn btn-lg btn-success btn-block"
+                                    type="submit"
+                                    value="Login">
                             </div>
                         </fieldset>
                     </form>

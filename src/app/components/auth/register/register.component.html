@@ -4,63 +4,130 @@
             <div class="panel panel-default blur-box">
                 <div class="panel-heading">
                     <div class="panel-heading text-center panel-relative desktop-only">
-                        <button type="button" class="btn btn-default" (click)="onClickToLogin()">
-                        <strong>LOGIN</strong>
-                                        </button>
-                        <button type="button" class="btn btn-default" (click)="onClickToRegister()">
-                            <strong>REGISTER</strong>
-                                        </button>
+                        <button type="button"
+                            class="btn btn-default"
+                            (click)="onClickToLogin()">
+                            <strong>LOGIN</strong>
+                                            </button>
+                        <button type="button"
+                            class="btn btn-default"
+                            (click)="onClickToRegister()">
+                                <strong>REGISTER</strong>
+                                            </button>
                     </div>
 
                     <div class="panel-heading text-center panel-relative mobile-only">
                         <h3 class="panel-title">
                             <a [routerLink]="['/login']">
-                                <strong>LOGIN</strong>
-                                            </a> |
+                                    <strong>LOGIN</strong>
+                                                </a> |
                             <a [routerLink]="['/register']">
-                                <strong>REGISTER</strong>
-                                            </a></h3>
+                                    <strong>REGISTER</strong>
+                                                </a></h3>
                     </div>
                 </div>
                 <div class="panel-body blur-box">
-                    <form (ngSubmit)="onSignup(f)" #f="ngForm">
+                    <form [formGroup]="signupForm"
+                        (ngSubmit)="signup()">
                         <fieldset>
                             <div class="form-group">
                                 <label for="username">
-                                    USERNAME:
-                                </label>
-                                <input id="username" ngModel class="form-control" placeholder="Username" name="username" type="text" pattern=".{3,100}" title="Please
-                                    provide a username between 3 and 100 symbols long." required="required">
+                                        USERNAME:
+                                    </label>
+                                <input type="text"
+                                    id="username"
+                                    formControlName="username"
+                                    class="form-control"
+                                    placeholder="Username"
+                                    maxlength="40">
+
+                                <div *ngIf="!signupForm.get('username').valid && (signupForm.get('username').touched)">
+                                    <div *ngIf="signupForm.get('username').errors['required']">
+                                        This field is required!
+                                    </div>
+                                    <div *ngIf="signupForm.get('username').errors['minlength']">
+                                        Username must be at least 4 characters!
+                                    </div>
+                                    <div *ngIf="signupForm.get('username').errors['forbiddenName']">
+                                        This name is forbidden!
+                                    </div>
+                                    <div *ngIf="signupForm.get('username').errors['forbiddenWhiteSpaces']">
+                                        The name can't contain whitespaces!
+                                    </div>
+
+                                </div>
+
                             </div>
                             <div class="form-group">
                                 <label for="email">
-                                    E-MAIL:
-                                </label>
-                                <input ngModel class="form-control" placeholder="E-mail" name="email" type="email">
+                                        E-MAIL:
+                                    </label>
+
+                                <input type="text"
+                                    id="email"
+                                    formControlName="email"
+                                    class="form-control"
+                                    placeholder="E-mail"
+                                    maxlength="40">
+                                <div *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                                    <!-- <div *ngIf="signupForm.get('email').errors['email']">
+                                        Please enter valid email!
+                                    </div> -->
+                                    <div *ngIf="signupForm.get('email').errors['pattern']">
+                                        Please enter valid email!
+                                    </div>
+                                </div>
                             </div>
+                            <!-- <div formGroupName="passwordCheck"> -->
                             <div class="form-group">
                                 <label for="password">
-                                    PASSWORD:
-                                </label>
-                                <input id="password" ngModel class="form-control" placeholder="Password" name="password" type="password">
+                                        PASSWORD:
+                                    </label>
+                                <input type="password"
+                                    id="password"
+                                    formControlName="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    maxlength="16">
+                                <div *ngIf="!signupForm.get('password').valid && (signupForm.get('password').touched  || signupForm.get('password').dirty)">
+                                    <div *ngIf="signupForm.get('password').errors['required']">
+                                        This field is required!
+                                    </div>
+                                    <div *ngIf="signupForm.get('password').errors['minlength']">
+                                        Password must contain at least 4 characters!
+                                    </div>
+                                    <!-- <span *ngIf="signupForm.get('passwordCheck.password').errors['mismatch']">
+                                                    The passwords don't match!
+                                            </span> -->
+                                </div>
                             </div>
                             <!-- <div class="form-group">
-                                <label for="password-confirm">
-                                    PASSWORD CONFIRMATION:
-                                </label>
-                                <input class="form-control"
-                                       id="confirm_password"
-                                       placeholder="Password Confirmation"
-                                       name="password-confirm"
-                                       type="password"
-                                       value=""
-                                       required="required"
-                                       class="form-control">
-                            </div> -->
+                                        <label for="password">
+                                            PASSWORD CONFIRAMATION:
+                                        </label>
+                                        <input type="password" id="password" formControlName="passwordConfirm" class="form-control" placeholder="Password Confirmation"
+                                            maxlength="10">
+                                        <span *ngIf="!signupForm.get('passwordCheck.passwordConfirm').valid && signupForm.get('passwordCheck.passwordConfirm').touched">
+                                            <span *ngIf="signupForm.get('passwordCheck.passwordConfirm').errors['reuired']">
+                                                    Please enter a password!
+                                            </span>
+                                            <span *ngIf="signupForm.get('passwordCheck').errors['mismatch']">
+                                                    The passwords don't match!
+                                            </span>
+                                        </span>
 
-                            <input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
+                                    </div> -->
+                            <!-- </div> -->
+                            <!-- <p *ngIf="!signupForm.valid && signupForm.touched">
+                                    Please enter valid data!
+                                </p> -->
+                            <input class="btn btn-lg btn-success btn-block"
+                                type="submit"
+                                value="Register"
+                                [disabled]="!signupForm.valid">
+
                             <!-- <button class="btn btn-lg btn-success btn-block"
-                                type="submit">Register</button> -->
+                                    type="submit">Register</button> -->
                             <!-- <input #user-form-btn-register class="btn btn-lg btn-success btn-block" type="submit" value="REGISTER"> -->
                         </fieldset>
                     </form>

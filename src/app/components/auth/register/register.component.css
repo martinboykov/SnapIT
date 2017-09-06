@@ -25,3 +25,16 @@
         display: none;
     }
 }
+
+  input.ng-invalid.ng-touched{
+    border: red solid 1px;
+  }
+  input.ng-invalid.ng-dirty{
+    border: red solid 1px;
+  }
+  input.ng-valid.ng-touched{
+    border: green solid 1px;
+  }
+  input.ng-valid.ng-dirty{
+    border: green solid 1px;
+  }
