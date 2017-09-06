@@ -31,6 +31,9 @@
         display: none;
     }
 }
-.invalidData{
+.invalid-data{
     color: red;
+}
+.reset-success{
+    color: green;
 }

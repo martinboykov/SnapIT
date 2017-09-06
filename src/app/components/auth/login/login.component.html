@@ -8,8 +8,8 @@
                         <fieldset>
                             <div class="form-group">
                                 <label for="email">
-                                  EMAIL:
-                              </label>
+                                      EMAIL:
+                                  </label>
                                 <input type="text"
                                     id="email"
                                     formControlName="email"
@@ -18,45 +18,68 @@
                                     maxlength="40">
                             </div>
                             <div class="form-group">
-                                <label for="password">
-                                  PASSWORD:
-                              </label>
+                                <label for="password"
+                                    *ngIf="!toggleReset">
+                                      PASSWORD:
+                                  </label>
                                 <input type="password"
                                     id="password"
                                     formControlName="password"
                                     class="form-control"
                                     placeholder="Password"
-                                    maxlength="16">
+                                    maxlength="16"
+                                    *ngIf="!toggleReset">
                                 <br>
                                 <div class="help-links">
-                                    <span class="forgotten-pass">
-                                  <a href="/lostpass">
-                                       Forgot your password?
-                                  </a>
-                              </span>
+                                    <a (click)="toggleResetPassword()"
+                                        style="cursor: pointer;"
+                                        *ngIf="!toggleReset">
+                                                Reset Password?
+                                        </a>
+                                    <p *ngIf="toggleReset && !loginForm.get('email').valid">
+                                        Enter your email address!
+                                    </p>
+                                    <button *ngIf="!passReset && loginForm.get('email').valid && toggleReset"
+                                        (click)="resetPassword()"
+                                        class="btn btn-lg btn-danger btn-block">
+                                                RESET
+                                         </button>
+                                    <p *ngIf="errorMsgReset"
+                                        class="invalid-data">
+                                        There is no user with this email address! Please try aggain! </p>
+                                    <p *ngIf="passReset && !errorMsgReset"
+                                        class="reset-success"> Check your email instructions.
+                                    </p>
+                                    <a [routerLink]="['/login']"
+                                        *ngIf="passReset && !errorMsgReset"
+                                        (click)="resetForm()">
+                                            Try aggain?
+                                       </a>
                                     <br>
                                     <span class="has-account">
-                                  <a [routerLink]="['/register']">
-                                       Don't have an account?
-                                  </a>
-                              </span>
+                                      <a [routerLink]="['/register']" *ngIf="!toggleReset">
+                                           Don't have an account?
+                                      </a>
+                                  </span>
                                 </div>
 
-                                <p *ngIf="errorMsg"
-                                    class="invalidData">
+                                <p *ngIf="errorMsg && !toggleReset"
+                                    class="invalid-data">
                                     Invalid Email or Password!
                                 </p>
+
                                 <!-- not sure if we'll be able to implement this -->
                                 <!-- <div class="checkbox">
-                                    <label>
-                                  <input name="remember" type="checkbox" value="Remember Me">
-                                      Remember Me
-                              </label>
-                                </div> -->
+                                        <label>
+                                      <input name="remember" type="checkbox" value="Remember Me">
+                                          Remember Me
+                                  </label>
+                                    </div> -->
 
                                 <input class="btn btn-lg btn-success btn-block"
                                     type="submit"
-                                    value="Login">
+                                    value="Login"
+                                    *ngIf="!toggleReset">
                             </div>
                         </fieldset>
                     </form>

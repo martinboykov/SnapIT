@@ -2,6 +2,7 @@ import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EMAIL_REGEX } from './../../../common/constants';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   errorMsg: string;
+  errorMsgReset: string;
   loginForm: FormGroup;
+  toggleReset = false;
+  passReset = false; // set to true when password reset is triggered
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -39,13 +43,28 @@ export class LoginComponent implements OnInit {
 
   buildForm(): void {
     this.loginForm = new FormGroup({
-      'email': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]),
       'password': new FormControl('', [Validators.required])
     });
     this.loginForm.valueChanges.subscribe((value) => console.log(value));
     this.loginForm.statusChanges.subscribe((value) => console.log(value));
   }
 
+  toggleResetPassword() {
+    this.toggleReset = true;
+  }
+  resetPassword() {
+    this.errorMsgReset = null;
+    this.authService.resetPassword(this.loginForm.value.email)
+      .then(() => this.passReset = true)
+      .catch(error => this.errorMsgReset = error.message);
+  }
+  resetForm() {
+    this.errorMsgReset = '';
+    this.errorMsg = '';
+    this.toggleReset = false;
+    this.passReset = false;
+  }
 
 
 }

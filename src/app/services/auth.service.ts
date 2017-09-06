@@ -53,5 +53,11 @@ export class AuthService {
     this.angularFireAuth.auth.signOut();
     this.router.navigate(['/home']);
   }
+
+  resetPassword(email: string) {
+    const fbAuth = firebase.auth();
+    return fbAuth.sendPasswordResetEmail(email)
+      .then(() => console.log('email sent'));
+  }
 }
 
