@@ -1,4 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
+;
+import { ProfileComponent } from './profile/profile.component'import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,6 +21,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { ImageComponent } from './components/gallery/image/image.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { [name]Component } from './[name]/[name].component';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     ImageComponent,
     UploadComponent,
     PageNotFoundComponent,
+    [name]Component, ProfileComponent,
 
   ],
   imports: [

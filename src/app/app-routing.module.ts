@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { ImageComponent } from './components/gallery/image/image.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { InfoComponent } from './components/info/info.component';
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'upload', component: UploadComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'image', component: ImageComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/page-not-found' },
