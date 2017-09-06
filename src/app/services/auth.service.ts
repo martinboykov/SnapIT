@@ -8,8 +8,6 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
-  // token: string;
-
   authState: any = null;
 
   constructor(private angularFireAuth: AngularFireAuth,
@@ -17,7 +15,7 @@ export class AuthService {
     private router: Router) {
 
     this.angularFireAuth.authState.subscribe((auth) => {
-      this.authState = auth;
+      this.authState = auth; // this.User
     });
   }
   // Returns true if user is logged in
@@ -36,7 +34,7 @@ export class AuthService {
         // Endpoint on firebase
         const path = `users/${this.currentUserId}`;
         const data = {
-          email: this.authState.email,
+          email: user.value.email,
           name: user.value.username
         };
 
@@ -48,6 +46,11 @@ export class AuthService {
 
   loginUser(email: string, password: string) {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  signOut(): void {
+    this.angularFireAuth.auth.signOut();
+    this.router.navigate(['/home']);
   }
 }
 
