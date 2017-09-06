@@ -10,6 +10,7 @@
 .btn-default {
     height: 40px;
     width: 110px;
+    border: 1px solid gray
 }
 
 .btn-success {
@@ -29,4 +30,7 @@
     .mobile-only {
         display: none;
     }
+}
+.invalidData{
+    color: red;
 }

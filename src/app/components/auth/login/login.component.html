@@ -3,29 +3,30 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default blur-box">
                 <div class="panel-body blur-box">
-                    <form action="/users/login"
-                          method="post">
+                    <form [formGroup]="loginForm"
+                        (ngSubmit)="login()">
                         <fieldset>
                             <div class="form-group">
-                                <label for="username">
-                                  USERNAME:
+                                <label for="email">
+                                  EMAIL:
                               </label>
-                                <input class="form-control"
-                                       placeholder="Username"
-                                       name="username"
-                                       type="text"
-                                       required="required">
+                                <input type="text"
+                                    id="email"
+                                    formControlName="email"
+                                    class="form-control"
+                                    placeholder="E-mail"
+                                    maxlength="40">
                             </div>
                             <div class="form-group">
                                 <label for="password">
                                   PASSWORD:
                               </label>
-                                <input class="form-control"
-                                       placeholder="Password"
-                                       name="password"
-                                       type="password"
-                                       value=""
-                                       required="required">
+                                <input type="password"
+                                    id="password"
+                                    formControlName="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    maxlength="16">
                                 <br>
                                 <div class="help-links">
                                     <span class="forgotten-pass">
@@ -33,15 +34,18 @@
                                        Forgot your password?
                                   </a>
                               </span>
-
-                            <span class="has-account">
+                                    <br>
+                                    <span class="has-account">
                                   <a [routerLink]="['/register']">
                                        Don't have an account?
                                   </a>
                               </span>
-
                                 </div>
-                                <br>
+
+                                <p *ngIf="errorMsg"
+                                    class="invalidData">
+                                    Invalid Email or Password!
+                                </p>
                                 <!-- not sure if we'll be able to implement this -->
                                 <!-- <div class="checkbox">
                                     <label>
@@ -49,10 +53,10 @@
                                       Remember Me
                               </label>
                                 </div> -->
-                                <input id="user-form-btn-login"
-                                       class="btn btn-lg btn-success btn-block"
-                                       type="submit"
-                                       value="Login">
+
+                                <input class="btn btn-lg btn-success btn-block"
+                                    type="submit"
+                                    value="Login">
                             </div>
                         </fieldset>
                     </form>

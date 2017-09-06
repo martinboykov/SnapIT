@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { CommonModule } from '@angular/common';
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'statistics', component: StatisticsComponent },
   { path: 'info', component: InfoComponent },
   { path: 'gallery', component: GalleryComponent },
-  { path: 'upload', component: UploadComponent },
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
