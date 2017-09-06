@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ProfileComponent } from './components/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -11,6 +10,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components//shared/header/header.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -39,7 +39,6 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     UploadComponent,
     PageNotFoundComponent,
     ProfileComponent,
-
   ],
   imports: [
     BrowserModule,
