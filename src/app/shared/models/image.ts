@@ -1,4 +1,4 @@
-export interface Image {
+export class Image {
     $key?: string;
     name?: string;
     url?: string;
@@ -9,11 +9,12 @@ export interface Image {
 // import { Categories } from '../enums/categories.enum';
 
 // export class PictureData {
+//     $key: string;
 //     name: string;
 //     description: string;
 //     author: UserData;
 //     uploadDate: Date;
-//     srcUrl: string;
+//     url: string;
 
 //     constructor() {
 //     }
@@ -24,7 +25,7 @@ export interface Image {
 //         pictureData.description = model.description;
 //         pictureData.author = model.author;
 //         pictureData.uploadDate = model.uploadDate;
-//         pictureData.srcUrl = model.srcUrl;
+//         pictureData.url = model.srcUrl;
 //         return pictureData;
 //     }
 // }

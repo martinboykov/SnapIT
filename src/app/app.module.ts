@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
@@ -30,8 +31,6 @@ import { UploadComponent } from './components/upload/upload.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +47,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     UploadComponent,
     PageNotFoundComponent,
     ProfileComponent,
-    ImageFilterPipe
+    ImageFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -57,9 +56,10 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
     AppRoutingModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    // InfiniteScrollModule
   ],
-  providers: [AuthService, AuthGuard,  ImageService, ImageFilterPipe],
+  providers: [AuthService, AuthGuard,  ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

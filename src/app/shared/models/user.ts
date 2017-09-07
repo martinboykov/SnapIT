@@ -1,11 +1,13 @@
-import { PictureData } from './picture';
+import { Image } from './image';
 
 export class UserData {
     public firstName: string;
     public lastName: string;
     public username: string;
-    public uploads: Array<PictureData>;
-    public favourites: Array<PictureData>;
+    public uploads: Array<Image>;
+    public favourites: Array<Image>;
+    // public uploads: Array<PictureData>;
+    // public favourites: Array<PictureData>;
     public uid: string;
     constructor(
         public userID: string = '',

@@ -1,14 +1,15 @@
 <div class="container">
-    <h2>Latest Photos</h2>
+    <h2 *ngIf="filterBy==='all'">Latest Photos</h2>
+    <h2 *ngIf="filterBy!=='all'">Photos with {{filterBy}}</h2>
     <hr>
     <div class="row">
-        <div class="container center">
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'" >Latest Photos</button>
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='nature'" (click)="filterBy='nature'" >Photos with Nature</button>
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='mountains'" (click)="filterBy='mountains'" >Photos with Mountains</button>
+        <div class="container-fluid col-lg">
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'" >Latest</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='nature'" (click)="filterBy='nature'" >Nature</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='mountains'" (click)="filterBy='mountains'" >Mountains</button>
         <button class="btn btn-lg btn-info" [class.active]="filterBy==='herbage
         '" (click)="filterBy='herbage'">Herbage</button>
-    </div>
+        </div>
     <hr>
     <div class="gal">
     <ul >
@@ -22,3 +23,19 @@
   </div>
   </div>
 </div>
+<!-- <h1>Images</h1>
+<div *ngFor="let image of images | async">
+    <img [src]="image?.url" width="120px">
+</div>
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()">
+</div>
+<div *ngIf="!finished">
+ Loading more movies...
+</div>
+<div *ngIf="finished">
+  End of database... That's all folks!
+</div> -->
