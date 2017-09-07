@@ -22,13 +22,6 @@ export class RegisterComponent implements OnInit {
     this.buildForm();
   }
 
-  // navigation
-  onClickToLogin() {
-    this.router.navigate(['/login']);
-  }
-  onClickToRegister() {
-    this.router.navigate(['/register']);
-  }
 
   // authentication
   signup() {

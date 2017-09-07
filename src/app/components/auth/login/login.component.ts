@@ -22,12 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.buildForm();
   }
-  onClickToLogin() {
-    this.router.navigate(['/login']);
-  }
-  onClickToRegister() {
-    this.router.navigate(['/register']);
-  }
+
 
   login() {
     const email = this.loginForm.value.email;
