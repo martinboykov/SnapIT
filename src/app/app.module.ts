@@ -1,4 +1,5 @@
 
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -6,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { ImageService } from './services/image.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/firebase';
@@ -56,7 +58,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     AppRoutingModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,  ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
