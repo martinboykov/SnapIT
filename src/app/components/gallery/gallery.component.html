@@ -1,10 +1,18 @@
 <div class="container">
-  <div class="row">
     <h2>Latest Photos</h2>
+    <hr>
+    <div class="row">
+        <div class="container center">
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'" >Latest Photos</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='nature'" (click)="filterBy='nature'" >Photos with Nature</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='mountains'" (click)="filterBy='mountains'" >Photos with Mountains</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='herbage
+        '" (click)="filterBy='herbage'">Herbage</button>
+    </div>
     <hr>
     <div class="gal">
     <ul >
-      <li *ngFor="let image of images | async"
+      <li *ngFor="let image of (images | async |  imageFilter:filterBy)"
         class="img">
         <a [routerLink]="['/image', image.$key]">
             <img src="{{image.url}}" class="tn">
@@ -14,73 +22,3 @@
   </div>
   </div>
 </div>
-
-<!-- <div class="container">
-
-
-  <h1>Pure Css Responsive Masonry Gallery</h1>
-  <div class="col-md-12">
-    <div class="row">
-      <hr>
-
-      <div class="gal">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/mWpE3Q/2.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/mysOxk/3.jpg"
-          alt="">
-
-
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/mWpE3Q/2.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/mysOxk/3.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt=""><img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/mysOxk/3.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/mysOxk/3.jpg"
-          alt="">
-
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/i0PmHk/1.jpg"
-          alt="">
-        <img src="https://preview.ibb.co/mWpE3Q/2.jpg"
-          alt="">
-
-      </div>
-
-    </div>
-  </div>
-</div> -->

@@ -1,3 +1,4 @@
+import { ImageFilterPipe } from './../../shared/Pipes/filter-Images.pipe';
 import { ImageService } from './../../services/image.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -10,8 +11,10 @@ import { Image } from '../../shared/models/image.model';
 
 export class GalleryComponent implements OnInit, OnChanges {
   images: Observable<Image[]>;
+  filterBy? = 'all';
 
-  constructor(private imageService: ImageService) { }
+
+  constructor(private imageService: ImageService, private imageFilter: ImageFilterPipe) { }
 
   ngOnInit() {
     this.images = this.imageService.getImages();
