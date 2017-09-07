@@ -1,3 +1,5 @@
+import { LoginData } from './../../../shared/models/login';
+import { RegisterData } from './../../../shared/models/register';
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ValidatorFn, AbstractControl, Validators } from '@angular/forms';
@@ -10,6 +12,7 @@ import { DIRTY_WORDS_REGEX, EMAIL_REGEX } from './../../../common/constants';
 })
 export class RegisterComponent implements OnInit {
 
+  model = new LoginData('', '');
   errorMsg: string;
   signupForm: FormGroup;
   // tslint:disable-next-line:max-line-length
@@ -25,7 +28,7 @@ export class RegisterComponent implements OnInit {
 
   // authentication
   signup() {
-    this.authService.signupUser(this.signupForm)
+    this.authService.register(this.model)
       .then(resolve => this.router.navigate(['/home']))
       .catch(error => this.errorMsg = error.message);
   }

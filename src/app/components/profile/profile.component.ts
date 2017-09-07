@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +12,9 @@ export class ProfileComponent implements OnInit {
 
   // get the data through a service from the database - hardcoded data only for test
   id = 1;
+  logged;
+  user: Object;
+  userID: string;
   username = 'Misha_90';
   firstName = 'Mihaela';
   lastName = 'Ivanova';
@@ -18,7 +23,8 @@ export class ProfileComponent implements OnInit {
   favourites = ['The Tree', 'Lonely Man', 'Sunset over Alaska', 'Sea Storm'];
   profilePicUrl = 'http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png';
   editHref = 'user/edit/' + this.id;
-  constructor() { }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   getUserUploads() {
     // implement getting users uploads from DB when user is authenticated
@@ -29,5 +35,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authService._currentUser;
   }
 }

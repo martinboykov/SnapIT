@@ -1,57 +1,67 @@
+import { LoginData } from './../shared/models/login';
+import { UserData } from './../shared/models/user';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-import * as firebase from 'firebase';
-
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  authState: any = null;
 
-  constructor(private angularFireAuth: AngularFireAuth,
+  _currentUser = new UserData();
+  loggedIn: boolean;
+
+  // authState: any = null;
+
+  constructor(
+    private angularFireAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private router: Router) {
 
-    this.angularFireAuth.authState.subscribe((auth) => {
-      this.authState = auth; // this.User
+    this.angularFireAuth.auth.onAuthStateChanged((user) => {
+      this.loggedIn = user !== null;
+      if (user) {
+        this._currentUser.email = user.email;
+        const userDetails = this.db.list('users/', { query: { orderByChild: 'userID', equalTo: user.uid } });
+        const newSubscription = userDetails.subscribe((snapshot) => {
+          this._currentUser = UserData.fromModel(snapshot[0], this._currentUser);
+          newSubscription.unsubscribe();
+        });
+      } else {
+        this._currentUser = new UserData();
+      }
     });
   }
+
   // Returns true if user is logged in
-  get authenticated(): boolean {
-    return this.authState !== null;
-  }
-  // Returns current user UID
-  get currentUserId(): string {
-    return this.authenticated ? this.authState.uid : '';
+  login(login: LoginData): firebase.Promise<any> {
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(login.email, login.password);
   }
 
-
-  signupUser(signupForm) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(signupForm.value.email, signupForm.value.password)
-      .then((newUser) => {
-        this.authState = newUser;
-        // Endpoint on firebase
-        const path = `users/${this.currentUserId}`;
-        const data = {
-          email: this.authState.email,
-          name: signupForm.value.username
-        };
-
-        this.db.object(path).update(data)
-          .catch(error => console.log(error));
-      })
-      .catch(error => console.log(error));
-  }
-
-  loginUser(email: string, password: string) {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
-  }
-
-  signOut(): void {
+  logout(): firebase.Promise<any> {
     this.angularFireAuth.auth.signOut();
-    this.router.navigate(['/home']);
+    return this.router.navigate(['/home']);
+  }
+
+  register(data: LoginData) {
+    return this.angularFireAuth.auth
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then(({ uid, email }) => {
+        return Promise.all([this.db.list('/users'), { uid, email }]);
+      })
+      .then(([users, details]) => {
+        const newUser = new UserData(details.uid, details.email);
+        return users.push(newUser);
+      })
+      .catch((err) => {
+        return Promise.reject(err);
+      });
+  }
+
+  get currentUser(): UserData {
+    return this._currentUser;
   }
 
   resetPassword(email: string) {
