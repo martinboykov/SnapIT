@@ -1,8 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+
+import { AuthService } from './../../core/auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Image } from './../../shared/models/image';
-import { ImageService } from './../../services/image.service';
-import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { ImageService } from './../../core/image.service';
 
 @Component({
   selector: 'app-home',

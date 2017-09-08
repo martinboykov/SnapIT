@@ -1,8 +1,9 @@
-import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+
+import { AuthService } from './../../../core/auth.service';
 import { EMAIL_REGEX } from './../../../common/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

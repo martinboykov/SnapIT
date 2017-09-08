@@ -1,8 +1,9 @@
-import { AuthService } from './../../../services/auth.service';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ValidatorFn, AbstractControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { DIRTY_WORDS_REGEX, EMAIL_REGEX } from './../../../common/constants';
+
+import { AuthService } from './../../../core/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
