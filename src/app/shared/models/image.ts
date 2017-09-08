@@ -2,6 +2,9 @@ export class Image {
     $key?: string;
     name?: string;
     url?: string;
+    description?: string;
+    title?: string;
+    author?: string;
 }
 
 

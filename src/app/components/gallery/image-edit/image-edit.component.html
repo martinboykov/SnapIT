@@ -1,3 +1,81 @@
-<p>
-  image-edit works!
-</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5  mycontent-left">
+        <div class="row">
+          <img class="img-responsive"
+            src="{{imgUrl}}" />
+        </div>
+        <div class="row">
+          <div class="col-cs-12 list-group-item">
+            <strong>Picture Title</strong> - {{(image|async).title}}
+          </div>
+          <div class="col-cs-12 list-group-item">
+            <strong>Picture Descritpion - </strong> {{(image|async).description}}
+          </div>
+          <div class="col-cs-12 list-group-item">
+            <strong>Picture Author</strong> - {{imgAuthor}}
+          </div>
+          <div class="col-cs-12 list-group-item">
+            <strong>Created</strong> - {{imgDate}}
+          </div>
+          <div class="dividor">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 "></div>
+      <div class="col-md-5  mycontent-right">
+
+        <div class="row">
+          <form [formGroup]="editForm"
+            (ngSubmit)="saveChanges()">
+            <h1>Your Changes</h1>
+            <div class="col-cs-12 list-group-item">
+              <label for="Title">Picture Title </label>
+              <textarea class="form-control"
+                rows="1"
+                maxlength=50
+                style="min-width: 100%"
+                formControlName="title"></textarea>
+              <p class="invalid-data"
+                [hidden]="editForm.get('title').valid">
+                Title is required
+              </p>
+            </div>
+
+            <div class="col-cs-12 list-group-item">
+              <label>Picture Descritpion</label>
+              <textarea class="form-control"
+                rows="5"
+                maxlength=300
+                style="min-width: 100%"
+                formControlName="description">
+              </textarea>
+              <p class="invalid-data"
+                [hidden]="editForm.get('description').valid">
+                Description is required
+              </p>
+            </div>
+
+            <div class="col-cs-12">
+              <button type="submit"
+                value="Login"
+                class="btn btn-success"
+                [disabled]="!editForm.valid">Update</button>
+            </div>
+            <div class="col-cs-12">
+              <button value="Login"
+                class="btn btn-success"
+                (click)="returnToImgDetails()"
+                [disabled]="!editForm.valid">Return</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div>
+      <p>Image Data</p>
+      <p>{{(image|async|json)}} </p>
+    </div> -->
+  </div>
+</div>

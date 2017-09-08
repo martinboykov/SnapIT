@@ -26,10 +26,9 @@ export class GalleryComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.images = this.imageService.getImages();
   }
-
 }
 
-  // }
+//   INFINITY SCROLL
 //   images = new BehaviorSubject([]);
 //   batch = 2;         // size of each query
 //   lastKey = '';      // key to offset next query from

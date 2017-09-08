@@ -45,11 +45,11 @@ import { ImageEditComponent } from './components/gallery/image-edit/image-edit.c
     InfoComponent,
     GalleryComponent,
     ImageDetailComponent,
+    ImageEditComponent,
     UploadComponent,
     PageNotFoundComponent,
     ProfileComponent,
     ImageFilterPipe,
-    ImageEditComponent,
   ],
   imports: [
     BrowserModule,

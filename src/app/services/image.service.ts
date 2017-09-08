@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { FirebaseApp } from 'angularfire2';
 import 'firebase/storage';
 import { Image } from '../shared/models/image';
@@ -10,16 +10,17 @@ import * as firebase from 'firebase';
 @Injectable()
 export class ImageService {
   private uid: string;
+  images: FirebaseListObservable<Image[]>;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
-    this.afAuth.authState.subscribe(auth => {
+  constructor(private angularFireAuth: AngularFireAuth, private db: AngularFireDatabase) {
+    this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
       }
     });
   }
 
-  getImages(): Observable<Image[]> {
+  getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');
   }
 
@@ -28,6 +29,7 @@ export class ImageService {
       .then((snap) => snap.val());
   }
 
+  // INFINITI SCROLL
   // getImages(batch, lastKey?) {
   //   const query = {
   //     orderByKey: true,
@@ -40,4 +42,11 @@ export class ImageService {
   //     });
   //   }
   // }
+  updateImage(image: FirebaseObjectObservable<Image>, data: any) {
+    return image.update(data);
+  }
+  deleteImage(key: string): void {
+    this.images.remove(key)
+      .catch(error => console.log(error));
+  }
 }

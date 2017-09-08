@@ -1,39 +1,30 @@
-<!-- <div class="row">
-  <div class=col-md-12>
-    <div [ngStyle]="{'background-image':'url('+ imageUrl +')'}"
-      class="img-container">
-    </div>
-  </div>
-</div> -->
 <div class="wrapper">
   <div class="container">
     <div class="row">
       <div class="col">
+        <!-- <img class="img-responsive"
+          src="{{(image | async).url}}" /> -->
         <img class="img-responsive"
-          src="{{imageUrl}}" />
+          src="{{imgUrl}}" />
       </div>
       <div class="row">
         <div class="col-cs-12 list-group-item">
-          <strong>Picture Title</strong> - Green, Green mountains
+          <strong>Picture Title</strong> - {{imgTitle}}
         </div>
         <div class="col-cs-12 list-group-item">
           <p><strong>Picture Descritpion</strong></p>
-          <p> onec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odiodui.</p>
+          <p> {{imgDescription}}</p>
         </div>
         <div class="col-cs-12 list-group-item">
-          <strong>Picture Author</strong> - Pesho
+          <strong>Picture Author</strong> - {{imgAuthor}}
         </div>
         <div class="col-cs-12 list-group-item">
-          <strong>Created</strong> - 22.03.2017
+          <strong>Created</strong> - {{imgDate}}
         </div>
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="edit()"
               class="btn btn-primary">Edit</button>
-          </div>
-          <div class="form-group group-buttons">
-            <button (click)="delete()"
-              class="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
