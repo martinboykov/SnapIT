@@ -41,5 +41,9 @@ export class ImageDetailComponent implements OnInit {
   }
   edit() {
     this.router.navigate(['edit'], { relativeTo: this.route });
+
+  }
+  returnToGallery() {
+    this.router.navigate(['/gallery']);
   }
 }

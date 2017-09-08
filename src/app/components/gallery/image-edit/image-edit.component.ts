@@ -70,14 +70,5 @@ export class ImageEditComponent implements OnInit {
   returnToImgDetails() {
     const id = this.route.snapshot.params['id'];
     this.router.navigate(['/image', id]);
-
-
-
   }
-
-
-
-
-
-
 }

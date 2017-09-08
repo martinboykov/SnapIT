@@ -1,1 +1,2 @@
-Check if need to import CommonModule into AppRoutingModule!
+-add functionality only the user that created the photo to be able to edit it
+
