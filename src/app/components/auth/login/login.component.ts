@@ -1,4 +1,3 @@
-import { LoginData } from './../../../shared/models/login';
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -12,20 +11,18 @@ import { EMAIL_REGEX } from './../../../common/constants';
 })
 export class LoginComponent implements OnInit {
 
-  model = new LoginData('', '');
   errorMsg: string;
   errorMsgReset: string;
   loginForm: FormGroup;
   toggleReset = false;
   passReset = false; // set to true when password reset is triggered
 
-  constructor(
-    private router: Router,
-    private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.buildForm();
   }
+
 
   login() {
     const email = this.loginForm.value.email;
@@ -34,7 +31,7 @@ export class LoginComponent implements OnInit {
     // console.log(email);
     // console.log(password);
 
-    this.authService.login(this.model)
+    this.authService.loginUser(email, password)
       .then(resolve => this.router.navigate(['/home']))
       .catch(error => this.errorMsg = error.message);
   }

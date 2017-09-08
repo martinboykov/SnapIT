@@ -35,6 +35,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authService._currentUser;
+    // this.user = this.authService._currentUser;
   }
 }
