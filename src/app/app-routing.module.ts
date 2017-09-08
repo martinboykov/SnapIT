@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { CommonModule } from '@angular/common';
 
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
-import { ImageComponent } from './components/gallery/image/image.component';
+import { ImageDetailComponent } from './components/gallery/image-detail/image-detail.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'image/:id', component: ImageComponent },
+  { path: 'image/:id', component: ImageDetailComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/page-not-found' },
 

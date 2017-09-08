@@ -1,3 +1,7 @@
+.container{
+    margin-bottom: 80px;
+}
+
 ul { padding:0; max-width:500px; margin: auto}
 /* li { display:inline;} */
 
@@ -5,8 +9,8 @@ li {
   display: inline;
 }
 .tn {
-  margin:6px 6px;
-  border: 2px solid #eee;
+  margin:3px 3px;
+  border: 1px solid #eee;
   box-shadow:#555 1px 1px 8px 1px;
   cursor: pointer;
 

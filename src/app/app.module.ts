@@ -26,9 +26,10 @@ import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { InfoComponent } from './components/info/info.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { ImageComponent } from './components/gallery/image/image.component';
+import { ImageDetailComponent } from './components/gallery/image-detail/image-detail.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { ImageEditComponent } from './components/gallery/image-edit/image-edit.component';
 
 
 @NgModule({
@@ -43,11 +44,12 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     StatisticsComponent,
     InfoComponent,
     GalleryComponent,
-    ImageComponent,
+    ImageDetailComponent,
     UploadComponent,
     PageNotFoundComponent,
     ProfileComponent,
     ImageFilterPipe,
+    ImageEditComponent,
   ],
   imports: [
     BrowserModule,
