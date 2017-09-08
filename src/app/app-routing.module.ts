@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'image/:id', component: ImageDetailComponent },
-  { path: 'image/:id/edit', component: ImageEditComponent },
+  { path: 'image/:id/edit', component: ImageEditComponent, canActivate: [AuthGuard]  },
   { path: 'upload', component: UploadComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

@@ -1,3 +1,4 @@
+import { FirebaseListObservable } from 'angularfire2/database';
 import { ImageFilterPipe } from './../../shared/Pipes/filter-Images.pipe';
 import { ImageService } from './../../services/image.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
@@ -12,7 +13,7 @@ import { Image } from '../../shared/models/image';
 })
 
 export class GalleryComponent implements OnInit, OnChanges {
-  images: Observable<Image[]>;
+  images: FirebaseListObservable<Image[]>;
   filterBy?= 'all';
   heading = 'Latest Photos';
 

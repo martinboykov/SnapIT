@@ -28,7 +28,21 @@ export class ImageService {
     return firebase.database().ref('gallery/' + key).once('value')
       .then((snap) => snap.val());
   }
+  getImagesList(query = {}): FirebaseListObservable<Image[]> {
+    this.images = this.db.list('/gallery', {
+      query: query
+    });
+    return this.images;
+  }
 
+  updateImage(image: FirebaseObjectObservable<Image>, data: any) {
+    return image.update(data);
+  }
+  deleteImage(key: string): void {
+    this.images.remove(key)
+      .catch(error => console.log(error));
+  }
+}
   // INFINITI SCROLL
   // getImages(batch, lastKey?) {
   //   const query = {
@@ -42,11 +56,3 @@ export class ImageService {
   //     });
   //   }
   // }
-  updateImage(image: FirebaseObjectObservable<Image>, data: any) {
-    return image.update(data);
-  }
-  deleteImage(key: string): void {
-    this.images.remove(key)
-      .catch(error => console.log(error));
-  }
-}

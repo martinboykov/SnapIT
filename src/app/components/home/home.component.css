@@ -104,3 +104,51 @@
 
 
 
+.container{
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+#center {
+    text-align: center;
+}
+.gal  ul { padding:0; max-width:500px; margin: auto}
+/* li { display:inline;} */
+
+.gal  li {
+  display: inline;
+}
+.tn {
+  margin:3px 3px;
+  border: 1px solid #eee;
+  box-shadow:#555 1px 1px 8px 1px;
+  cursor: pointer;
+
+}
+
+.gal  h2{
+  margin-bottom: 20px;
+}
+
+
+.gal {
+    -webkit-column-count: 3;
+    /* Chrome, Safari, Opera */
+    -moz-column-count: 3;
+    /* Firefox */
+    column-count: 3;
+}
+
+.gal > ul>li>a img {
+    width: 100%;
+    padding: 7px;
+}
+
+@media (max-width: 500px) {
+    .gal {
+        -webkit-column-count: 1;
+        /* Chrome, Safari, Opera */
+        -moz-column-count: 1;
+        /* Firefox */
+        column-count: 1;
+    }
+}

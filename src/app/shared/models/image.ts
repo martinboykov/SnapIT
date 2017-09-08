@@ -5,6 +5,7 @@ export class Image {
     description?: string;
     title?: string;
     author?: string;
+    authorID?: string;
     date?: string;
 }
 
