@@ -1,26 +1,18 @@
 <div class="container">
-  <div>
+  <div *ngIf="currentFile">
     <div class="progress">
-      <div class="progress-bar progress-bar-animated"></div>
+      <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentFile?.progress + '%' }"></div>
     </div>
-    Progress:
+    Progress: {{currentFile?.progress}}% Complete
   </div>
-  <div class="container">
-    <h2 class="heading">Upload New Images</h2>
-    <div class="row">
-      <div class="col-xs-12">
-        <label class="btn btn-default">
-              Choose Files
-              <input type="file"
-                   hidden
-                   multiple>
-           </label>
-        <div class="row">
-          <div class="col-xs-12">
-            <button class="btn btn-primary">Upload Images</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <label class="control-label" for='image-selector'> Upload New Images </label>
+  <div class="input-group">
+    <label class="input-group-btn">
+      <span class="btn btn-primary">
+        Browse&hellip; <input type="file" (change)="handleFiles($event)" style="display: none;" multiple>
+      </span>
+    </label>
+    <input type="text" class="form-control" readonly [value]="selectStatus">
   </div>
+  <button class="btn btn-primary" (click)="uploadFiles()">Upload Images</button>
 </div>
