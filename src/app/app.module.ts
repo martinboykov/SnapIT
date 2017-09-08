@@ -1,11 +1,14 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { ImageService } from './services/image.service';
+import { ImageFilterPipe } from './shared/Pipes/filter-Images.pipe';
 
 import { AngularFireModule } from 'angularfire2';
 import { firebase } from '../environments/firebase';
@@ -23,11 +26,10 @@ import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { InfoComponent } from './components/info/info.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { ImageComponent } from './components/gallery/image/image.component';
+import { ImageDetailComponent } from './components/gallery/image-detail/image-detail.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
-
-
+import { ImageEditComponent } from './components/gallery/image-edit/image-edit.component';
 
 
 @NgModule({
@@ -42,10 +44,12 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     StatisticsComponent,
     InfoComponent,
     GalleryComponent,
-    ImageComponent,
+    ImageDetailComponent,
+    ImageEditComponent,
     UploadComponent,
     PageNotFoundComponent,
     ProfileComponent,
+    ImageFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +58,10 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
     AppRoutingModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    // InfiniteScrollModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,  ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,65 @@
+.img-responsive {
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    box-shadow: #555 2px 2px 2px 1px;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 80px;
+    min-height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin: 0 auto -49px;
+    ;
+}
+
+h3,
+h4,
+p {
+    text-align: left;
+}
+
+.group-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    min-width: 80px;
+    float: left;
+}
+
+.btn-success {
+    margin-right: 5px;
+    margin-top: 20px;
+}
+
+.mycontent-left .mycontent-right {
+    margin-bottom: 60px;
+}
+
+.dividor {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.invalid-data{
+    color: red;
+}
+.reset-success{
+    color: green;
+}
+textarea.ng-invalid.ng-touched{
+    border: red solid 1px;
+  }
+  textarea.ng-invalid.ng-dirty{
+    border: red solid 1px;
+  }
+  textarea.ng-valid.ng-touched{
+    border: green solid 1px;
+  }
+  textarea.ng-valid.ng-dirty{
+    border: green solid 1px;
+  }
