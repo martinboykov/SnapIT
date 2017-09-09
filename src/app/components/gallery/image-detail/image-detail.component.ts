@@ -1,8 +1,8 @@
-import { AuthService } from './../../../core/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
+import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Image } from '../../../shared/models/image';
 import { ImageService } from '../../../core/image.service';
 
@@ -23,8 +23,12 @@ export class ImageDetailComponent implements OnInit {
   public editAuthorOnly = false;
 
 
-  constructor(private imageService: ImageService,
-    private route: ActivatedRoute, private router: Router, private db: AngularFireDatabase, private authService: AuthService) { }
+  constructor(
+    private imageService: ImageService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private db: AngularFireDatabase,
+    @Inject('IAuthService') private authService: IAuthService) { }
 
   ngOnInit() {
     this.uid = this.authService.currentUserId;

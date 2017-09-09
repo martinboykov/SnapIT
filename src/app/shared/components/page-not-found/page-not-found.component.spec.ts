@@ -1,5 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
+import { AppModule } from './../../../app.module';
+import { AppRoutingModule } from './../../../app-routing.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 describe('PageNotFoundComponent', () => {
@@ -8,7 +11,14 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ]
+      imports: [
+        CommonModule,
+        AppRoutingModule,
+        AppModule
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
     .compileComponents();
   }));
