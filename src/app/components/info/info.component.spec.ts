@@ -2,9 +2,10 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { APP_BASE_HREF } from '@angular/common';
+import { AboutComponent } from './../static/about/about.component';
 import { AppRoutingModule } from './../../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { ContactsComponent } from './../contacts/contacts.component';
+import { ContactsComponent } from './../static/contacts/contacts.component';
 import { CoreModule } from './../../core/core.module';
 import { GalleryComponent } from './../gallery/gallery.component';
 import { HomeComponent } from './../home/home.component';
@@ -33,7 +34,8 @@ describe('InfoComponent', () => {
         GalleryComponent,
         ImageDetailComponent,
         ImageEditComponent,
-        ProfileComponent
+        ProfileComponent,
+        AboutComponent
       ],
       imports: [
         BrowserModule,

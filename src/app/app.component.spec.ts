@@ -2,10 +2,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 
 import { APP_BASE_HREF } from '@angular/common';
+import { AboutComponent } from './components/static/about/about.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { ContactsComponent } from './components/contacts/contacts.component';
+import { ContactsComponent } from './components/static/contacts/contacts.component';
 import { CoreModule } from './core/core.module';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
@@ -35,7 +36,8 @@ describe('AppComponent', () => {
         GalleryComponent,
         ImageDetailComponent,
         ImageEditComponent,
-        ProfileComponent
+        ProfileComponent,
+        AboutComponent
       ],
       imports: [
         BrowserModule,

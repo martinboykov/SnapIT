@@ -11,13 +11,17 @@ import { ImageService } from './../../core/image.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit  {
-  images: FirebaseListObservable<Image[]>;
+  images: Array<Image>;
 
   constructor(private authService: AuthService, private imageService: ImageService) { }
 
   ngOnInit() {
-    this.images = this.imageService.getImagesList(({limitToLast: 12}));
+    this.imageService.getImagesList(({limitToLast: 12})).subscribe(images => {
+      this.images = images;
+    });
   }
 
-
+  get isUserLoggedIn(): boolean{
+    return this.authService.authenticated;
+  }
 }
