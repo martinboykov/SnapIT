@@ -21,3 +21,13 @@ div.profile-block div.col-sm-2{
 i.glyphicon{
     margin-bottom: 10px;
 }
+
+@media (max-width: 992px){
+    .img-rounded{
+        margin-left:55px;
+        width:250px !important;
+    }
+    .info{
+        padding-left:55px;
+    }
+}
