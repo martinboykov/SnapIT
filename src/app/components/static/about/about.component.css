@@ -1,0 +1,23 @@
+.row{
+    margin-top:10%;
+    margin-bottom:10%;
+    margin-left:0 important!
+}
+.img-rounded{
+    margin:auto;
+    margin-bottom:25px;
+    width:80% !important;
+}
+
+div.profile-block div.col-sm-2{
+    padding:0;
+}
+
+.info{
+    display: inline-block;
+    padding-left:25px;
+}
+
+i.glyphicon{
+    margin-bottom: 10px;
+}
