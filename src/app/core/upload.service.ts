@@ -1,4 +1,5 @@
-import * as _ from 'lodash';
+import { AuthService } from './auth.service';
+// import * as _ from 'lodash';
 import * as firebase from 'firebase';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -27,7 +28,7 @@ export class Upload {
                 file.progress |= 0;
             },
             (error) => { },
-            () => {
+            (): any => {
                 file.url = uploadTask.snapshot.downloadURL;
                 file.isUploading = false;
             }

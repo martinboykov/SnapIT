@@ -24,8 +24,10 @@ export class ImageService {
   }
 
   saveImage(image: Image) {
-    this.db.list(`gallery`).push(image);
-}
+    image.authorID = this.uid;
+    this.db.list(`/gallery`).push(image);
+    this.db.list(`users/${this.uid}/images`).push(image);
+  }
 
   getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');
