@@ -5,7 +5,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { HomeComponent } from './components/home/home.component';
 import { ImageDetailComponent } from './components/gallery/image-detail/image-detail.component';
 import { ImageEditComponent } from './components/gallery/image-edit/image-edit.component';
-import { InfoComponent } from './components/info/info.component';
+import { AboutComponent } from './components/static/about/about.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'statistics', component: StatisticsComponent },
-  { path: 'info', component: InfoComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'image/:id', component: ImageDetailComponent },
   { path: 'image/:id/edit', component: ImageEditComponent, canActivate: [AuthGuard]  },
