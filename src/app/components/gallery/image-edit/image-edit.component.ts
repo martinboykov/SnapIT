@@ -19,7 +19,7 @@ export class ImageEditComponent implements OnInit {
   public imgDescription;
   public imgTitle;
   public imgAuthor;
-  public imgDate;
+  public imgCategorie;
 
   editForm: FormGroup;
 
@@ -44,7 +44,7 @@ export class ImageEditComponent implements OnInit {
         this.imgDescription = image.description;
         this.imgTitle = image.title;
         this.imgAuthor = image.author;
-        this.imgDate = image.date;
+        this.imgCategorie = image.categorie;
       });
   }
   buildForm(): void {

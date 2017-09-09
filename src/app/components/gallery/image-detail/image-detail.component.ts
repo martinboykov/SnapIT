@@ -16,7 +16,7 @@ export class ImageDetailComponent implements OnInit {
   public imgDescription;
   public imgTitle;
   public imgAuthor;
-  public imgDate;
+  public imgCategorie;
 
 
   constructor(private imageService: ImageService,
@@ -35,7 +35,7 @@ export class ImageDetailComponent implements OnInit {
         this.imgDescription = image.description;
         this.imgTitle = image.title;
         this.imgAuthor = image.author;
-        this.imgDate = image.date;
+        this.imgCategorie = image.categorie;
       });
   }
   edit() {

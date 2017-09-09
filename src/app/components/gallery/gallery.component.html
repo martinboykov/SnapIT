@@ -5,10 +5,14 @@
     <div class="row">
         <div class="container-fluid col-lg">
         <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'" >Latest</button>
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='nature'" (click)="filterBy='nature'" >Nature</button>
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='mountains'" (click)="filterBy='mountains'" >Mountains</button>
-        <button class="btn btn-lg btn-info" [class.active]="filterBy==='herbage
-        '" (click)="filterBy='herbage'">Herbage</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='Landscape'" (click)="filterBy='Landscape'" >Landscape</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='Portrait'" (click)="filterBy='Portrait'" >Portrait</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='Animals
+        '" (click)="filterBy='Animals'">Animals</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='Architecture
+        '" (click)="filterBy='Architecture'">Architecture</button>
+        <button class="btn btn-lg btn-info" [class.active]="filterBy==='Other
+        '" (click)="filterBy='Other'">Other</button>
         </div>
     <hr>
     <div class="gal">
