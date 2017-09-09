@@ -4,7 +4,7 @@ export class Image {
     url?: string;
     description?: string;
     title?: string;
-    author?: string;
+    authorName?: string;
     authorID?: string;
     date?: string;
 }

@@ -1,31 +1,66 @@
 <div class="container">
   <div *ngIf="currentFile">
     <div class="progress">
-      <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentFile?.progress + '%' }"></div>
+      <div class="progress-bar progress-bar-animated"
+        [ngStyle]="{ 'width': currentFile?.progress + '%' }"></div>
     </div>
     Progress: {{currentFile?.progress}}% Complete
   </div>
-  <label class="control-label" for='image-selector'> Upload New Images </label>
+  <label class="control-label"
+    for='image-selector'> Upload New Images </label>
   <div class="input-group">
     <label class="input-group-btn">
       <span class="btn btn-primary">
         Browse&hellip; <input type="file" (change)="handleFiles($event)" style="display: none;" multiple>
       </span>
     </label>
-    <input type="text" class="form-control" readonly [value]="selectStatus">
+    <input type="text"
+      class="form-control"
+      readonly
+      [value]="selectStatus">
     <label class="input-group-btn">
       <span class="btn btn-primary">
           Upload Images <input  type="button"  (click)="uploadFiles()" style="display: none;">
       </span>
     </label>
   </div>
-  <div *ngFor="let image of uploadedFiles" class="col-xs-12 col-sm-6 col-md-3">
+  <div *ngFor="let image of uploadedFiles"
+    class="col-xs-12 col-sm-6 col-md-3">
     <img src="{{image.url}}">
+    <label class="control-label image-data"
+      for='title'
+      maxlength="40"> Image Title </label>
+    <input class="image-data"
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Provide image title">
 
-    <label class="control-label image-data" for='title'> Image Title </label>
-    <input class="image-data" type="text" class="form-control" id= "title" placeholder= "Provide image title">
+    <label class="control-label image-data"
+      for='title'> Image Description </label>
+    <textarea rows="3"
+      class="image-data"
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Provide image description"
+      maxlength="300"></textarea>
 
-    <a class="btn btn-primary btn-block image-data"(click)="saveImage(image.url)">Save</a>
-    <a class="btn btn-danger btn-block image-data"(click)="deleteFile(image.file.name)">Delete</a>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown">Select category
+        <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Nature</a></li>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Animals</a></li>
+        <li><a href="#">Others</a></li>
+      </ul>
+    </div>
+    <a class="btn btn-primary btn-block image-data"
+      (click)="saveImage(image.url)">Save</a>
+    <a class="btn btn-danger btn-block image-data"
+      (click)="deleteFile(image.file.name)">Delete</a>
   </div>
 </div>
