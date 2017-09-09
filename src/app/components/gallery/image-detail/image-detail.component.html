@@ -24,6 +24,7 @@
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="edit()"
+            [disabled]="!editAuthorOnly"
               class="btn btn-primary">Edit</button>
           </div>
         </div>
