@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 import { AuthService } from './../../../core/auth.service';
-import { EMAIL_REGEX } from './../../../common/constants';
+import { EMAIL_REGEX } from './../../../shared/constants';
 import { Router } from '@angular/router';
 
 @Component({

@@ -6,7 +6,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { FileItem } from './../shared/models/file';
 import { Image } from './../shared/models/image';
 import { Injectable } from '@angular/core';
-import { UPLOAD_FOLDER } from '../common/constants';
+import { UPLOAD_FOLDER } from '../shared/constants';
 
 @Injectable()
 export class Upload {

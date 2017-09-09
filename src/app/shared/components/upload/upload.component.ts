@@ -2,9 +2,9 @@ import * as files from 'lodash';
 
 import { Component, OnInit } from '@angular/core';
 
-import { DEFAULT_SELECT_STATUS } from './../../common/constants';
-import { FileItem } from '../../shared/models/file';
-import { Upload as UploadService } from '../../core/upload.service';
+import { DEFAULT_SELECT_STATUS } from '../../constants';
+import { FileItem } from '../../models/file';
+import { Upload as UploadService } from '../../../core/upload.service';
 
 @Component({
   selector: 'app-upload',

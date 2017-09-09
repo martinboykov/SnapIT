@@ -8,11 +8,11 @@ import { ImageEditComponent } from './components/gallery/image-edit/image-edit.c
 import { InfoComponent } from './components/info/info.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { NgModule } from '@angular/core';
-import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
-import { UploadComponent } from './components/upload/upload.component';
+import { UploadComponent } from './shared/components/upload/upload.component';
 
 // import { CommonModule } from '@angular/common';
 
