@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { DEFAULT_SELECT_STATUS } from '../../constants';
 import { FileItem } from '../../models/file';
+import { Image } from './../../models/image';
+import { ImageService } from './../../../core/image.service';
 import { Upload as UploadService } from '../../../core/upload.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class UploadComponent {
   uploadedFiles: Array<FileItem>;
   currentFile: FileItem;
   selectStatus: string;
-  constructor(private imagesService: UploadService) {
+  constructor(private imageService: ImageService, private uploadServise: UploadService) {
     this.selectStatus = DEFAULT_SELECT_STATUS;
     this.uploadedFiles = new Array<FileItem>();
     console.log(this.uploadedFiles);
@@ -35,13 +37,20 @@ export class UploadComponent {
     const filesIndexes = files.range(this.filesToUpload.length);
     files.each(filesIndexes, (idx) => {
       this.currentFile = new FileItem(this.filesToUpload[idx]);
-       this.imagesService.uploadImagesToFirebase(this.currentFile);
+       this.uploadServise.uploadImagesToFirebase(this.currentFile);
        this.uploadedFiles.push(this.currentFile);
     });
   }
 
-  deleteFile(name) {
-    this.imagesService.deleteImage(name)
+  saveImage(url: string) {
+    const image = new Image();
+    image.url = url;
+
+    this.imageService.saveImage(image);
+  }
+
+  deleteFile(name: string) {
+    this.uploadServise.deleteUpload(name)
     .then(() => {
       this.uploadedFiles = this.uploadedFiles.filter(f => f.file.name !== name);
     });

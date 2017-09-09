@@ -1,11 +1,14 @@
+import 'firebase/storage';
+
+import * as firebase from 'firebase';
+
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseApp } from 'angularfire2';
+import { Image } from '../shared/models/image';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { FirebaseApp } from 'angularfire2';
-import 'firebase/storage';
-import { Image } from '../shared/models/image';
-import * as firebase from 'firebase';
 
 @Injectable()
 export class ImageService {
@@ -19,6 +22,10 @@ export class ImageService {
       }
     });
   }
+
+  saveImage(image: Image) {
+    this.db.list(`gallery`).push(image);
+}
 
   getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');

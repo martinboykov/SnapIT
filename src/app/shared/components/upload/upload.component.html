@@ -21,6 +21,11 @@
   </div>
   <div *ngFor="let image of uploadedFiles" class="col-xs-12 col-sm-6 col-md-3">
     <img src="{{image.url}}">
-    <a class="btn btn-danger btn-block"(click)="deleteFile(image.file.name)">Delete</a>
+
+    <label class="control-label image-data" for='title'> Image Title </label>
+    <input class="image-data" type="text" class="form-control" id= "title" placeholder= "Provide image title">
+
+    <a class="btn btn-primary btn-block image-data"(click)="saveImage(image.url)">Save</a>
+    <a class="btn btn-danger btn-block image-data"(click)="deleteFile(image.file.name)">Delete</a>
   </div>
 </div>

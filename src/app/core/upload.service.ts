@@ -29,22 +29,17 @@ export class Upload {
             (error) => { },
             () => {
                 file.url = uploadTask.snapshot.downloadURL;
-                console.log(file.url);
                 file.isUploading = false;
-                this.saveImage(file);
             }
         );
 
+        console.log(file.url);
         return file.url;
     }
 
-    private saveImage(file: FileItem) {
-        this.db.list(`/${UPLOAD_FOLDER}`).push(file);
-    }
-
-    public deleteImage(path: string): firebase.Promise<any> {
+    public deleteUpload(name: string): firebase.Promise<any> {
         const storageRef = firebase.storage().ref();
-        const desertRef = storageRef.child(`${UPLOAD_FOLDER}/${path}`);
+        const desertRef = storageRef.child(`${UPLOAD_FOLDER}/${name}`);
         const deletion = desertRef.delete();
 
         return deletion;

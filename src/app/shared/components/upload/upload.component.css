@@ -13,9 +13,11 @@
   }
 
 button {
-
     margin-top: 20px;
+}
 
+.image-data {
+    margin-top: 15px;
 }
 
 img {
