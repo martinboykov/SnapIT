@@ -25,11 +25,6 @@ export class Upload {
 
                 // tslint:disable-next-line:no-bitwise
                 file.progress |= 0;
-            },
-            (error) => { },
-            () => {
-                file.url = uploadTask.snapshot.downloadURL;
-                file.isUploading = false;
             }
         );
 
