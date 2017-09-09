@@ -1,15 +1,16 @@
-import { UserData } from './../shared/models/user';
-import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import * as firebase from 'firebase';
+
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import * as firebase from 'firebase';
+import { IAuthService } from './contracts/auth-servise-interface';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-
+import { Router } from '@angular/router';
+import { UserData } from './../shared/models/user';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService {
   authState: any = null;
   user: any;
   private basePath = '/users';

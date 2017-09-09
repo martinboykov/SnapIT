@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
-import { AuthService } from './../../core/auth.service';
+import { IAuthService } from '../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   profilePicUrl = 'http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png';
   editHref = 'user/edit/' + this.id;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(@Inject('IAuthService') private authService: IAuthService, private router: Router) { }
 
   getUserUploads() {
     // implement getting users uploads from DB when user is authenticated

@@ -1,4 +1,3 @@
-import { AuthService } from './auth.service';
 // import * as _ from 'lodash';
 import * as firebase from 'firebase';
 

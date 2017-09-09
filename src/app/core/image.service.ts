@@ -1,16 +1,16 @@
-import { UserData } from './../shared/models/user';
-import { AuthService } from './auth.service';
 import 'firebase/storage';
 
 import * as firebase from 'firebase';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Inject, Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseApp } from 'angularfire2';
+import { IAuthService } from './contracts/auth-servise-interface';
 import { Image } from '../shared/models/image';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { UserData } from './../shared/models/user';
 
 @Injectable()
 export class ImageService {
@@ -19,7 +19,10 @@ export class ImageService {
   userName: string;
   images: FirebaseListObservable<Image[]>;
 
-  constructor(private angularFireAuth: AngularFireAuth, private db: AngularFireDatabase, private authService: AuthService) {
+  constructor(
+    private angularFireAuth: AngularFireAuth,
+     private db: AngularFireDatabase,
+      @Inject('IAuthService') private authService: IAuthService) {
     this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
