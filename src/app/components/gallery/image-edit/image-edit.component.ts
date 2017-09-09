@@ -1,9 +1,10 @@
-import { AngularFireDatabase } from 'angularfire2/database';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Image } from '../../../shared/models/image';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ImageService } from '../../../services/image.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Image } from '../../../shared/models/image';
+import { ImageService } from '../../../core/image.service';
 
 @Component({
   selector: 'app-image-edit',

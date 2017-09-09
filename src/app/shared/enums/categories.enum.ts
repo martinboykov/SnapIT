@@ -1,11 +1,9 @@
 enum Categories {
-    'Black and White',
-    'Portrait',
     'Landscape',
+    'Portrait',
+    'Animals',
     'Architecture',
-    'Motion',
-    'Street',
-    'Night'
+    'Other',
 }
 
 const categoriesList = () => {

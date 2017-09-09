@@ -57,11 +57,11 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!authService.authState"
-              [routerLink]="['/login']">Login</a>
+              [routerLink]="['/login']"
+              *ngIf="!authService.currentUser">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!authService.authState"
-              [routerLink]="['/register']">>Register</a>
+              *ngIf="!authService.currentUser"
+              [routerLink]="['/register']">Register</a>
           </div>
         </div>
       </div>
@@ -110,8 +110,8 @@
 </div>
 <!-- /carousel -->
 <div class="container">
-    <h2 id="center">Latest Photos</h2>
-    <hr>
+  <h2 id="center">Latest Photos</h2>
+  <hr>
   <div class="gal">
 
     <ul>

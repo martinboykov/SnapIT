@@ -1,23 +1,38 @@
+import { UserData } from './../shared/models/user';
+import { AuthService } from './auth.service';
+import 'firebase/storage';
+
+import * as firebase from 'firebase';
+
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseApp } from 'angularfire2';
+import { Image } from '../shared/models/image';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { FirebaseApp } from 'angularfire2';
-import 'firebase/storage';
-import { Image } from '../shared/models/image';
-import * as firebase from 'firebase';
 
 @Injectable()
 export class ImageService {
   private uid: string;
+
+  userName: string;
   images: FirebaseListObservable<Image[]>;
 
-  constructor(private angularFireAuth: AngularFireAuth, private db: AngularFireDatabase) {
+  constructor(private angularFireAuth: AngularFireAuth, private db: AngularFireDatabase, private authService: AuthService) {
     this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
+
       }
     });
+  }
+
+  saveImage(image: Image) {
+    image.authorID = this.uid;
+
+    this.db.list(`/gallery`).push(image);
+    // this.db.list(`users/${this.uid}/images`)(image);
   }
 
   getImages(): FirebaseListObservable<Image[]> {

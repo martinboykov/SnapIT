@@ -1,0 +1,77 @@
+<div class="container">
+  <div *ngIf="currentFile">
+    <div class="progress">
+      <div class="progress-bar progress-bar-animated"
+        [ngStyle]="{ 'width': currentFile?.progress + '%' }"></div>
+    </div>
+    Progress: {{currentFile?.progress}}% Complete
+  </div>
+  <label class="control-label"
+    for='image-selector'> Upload New Image </label>
+  <div class="input-group">
+    <label class="input-group-btn">
+      <span class="btn btn-primary">
+        Browse&hellip; <input type="file" (change)="handleFiles($event)" style="display: none;" single>
+      </span>
+    </label>
+    <input type="text"
+      class="form-control"
+      readonly
+      [value]="selectStatus">
+    <label class="input-group-btn">
+      <span class="btn btn-primary" >
+          Upload Images <input [disabled]="fileUploadedToDB" type="button"  (click)="uploadFiles()" style="display: none;">
+      </span>
+    </label>
+  </div>
+  <form [formGroup]="uploadForm"
+    (ngSubmit)="saveImage()" *ngIf="!imageSavedToDB">
+    <div *ngFor="let image of uploadedFiles"
+      class="col-xs-12 col-sm-6 col-md-3" >
+      <img src="{{(image.url)}}">
+      <label class="control-label image-data"
+        for='title'> Image Title </label>
+      <input formControlName="title"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Provide image title"
+        maxlength="40">
+      <div *ngIf="!uploadForm.get('title').valid">
+        <div *ngIf="uploadForm.get('title').errors['required']">
+          This field is required!
+        </div>
+      </div>
+      <label class="control-label image-data"
+        for='title'> Image Description </label>
+      <textarea formControlName="description"
+        rows="3"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Provide image description"
+        maxlength="300"></textarea>
+      <div *ngIf="!uploadForm.get('description').valid ">
+        <div *ngIf="uploadForm.get('description').errors['required']">
+          This field is required!
+        </div>
+      </div>
+      <label class="control-label image-data"
+        for='categorie'> Select categorie </label>
+      <div class="wrapper">
+        <div class="radio"
+          *ngFor="let categorie of listOfCategories">
+          <label>
+            <input type="radio" formControlName="categorie" [value]="categorie.name"  name="categorie">{{categorie.name}}
+          </label>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block image-data"
+        type="submit"
+        [disabled]="imageSavedToDB || !uploadForm.valid">Save</button>
+      <button class="btn btn-danger btn-block image-data"
+        [disabled]="imageSavedToDB"
+        (click)="deleteFile(image.file?.name)">Delete</button>
+    </div>
+  </form>
+</div>

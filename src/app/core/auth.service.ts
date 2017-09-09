@@ -1,14 +1,18 @@
+import { UserData } from './../shared/models/user';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Rx';
 
 
 @Injectable()
 export class AuthService {
   authState: any = null;
+  user: any;
+  private basePath = '/users';
 
   constructor(private angularFireAuth: AngularFireAuth,
     private db: AngularFireDatabase,
@@ -25,6 +29,16 @@ export class AuthService {
   // Returns current user UID
   get currentUserId(): string {
     return this.authenticated ? this.authState.uid : '';
+  }
+  get currentUser(): any {
+    return this.authenticated ? this.authState : null;
+  }
+
+  getUser(key: string): FirebaseObjectObservable<UserData> {
+    const usersPath =  `${this.basePath}/${key}`;
+    this.user = this.db.object(usersPath);
+
+    return this.user;
   }
 
 

@@ -1,0 +1,66 @@
+.container {
+    padding: 5%;
+    margin-top: 80px;
+}
+
+.heading {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button.image-data {
+    margin-top: 20px;
+}
+
+.image-data {
+    margin-top: 15px;
+}
+
+img {
+    cursor: pointer;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.wrapper {
+    border: 1px solid #CCCCCC;
+}
+
+.radio {
+    padding-left: 5px;
+}
+
+textarea.ng-invalid {
+    border: red solid 1px;
+}
+
+textarea.ng-invalid {
+    border: red solid 1px;
+}
+
+textarea.ng-valid{
+    border: green solid 1px;
+}
+
+textarea.ng-valid {
+    border: green solid 1px;
+}
+input.ng-invalid {
+    border: red solid 1px;
+}
+
+input.ng-invalid {
+    border: red solid 1px;
+}
+
+input.ng-valid {
+    border: green solid 1px;
+}
+
+input.ng-valid {
+    border: green solid 1px;
+}
