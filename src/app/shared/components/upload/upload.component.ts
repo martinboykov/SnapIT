@@ -79,16 +79,13 @@ export class UploadComponent implements OnInit {
   }
 
   saveImage() {
-    console.log(this.uploadForm.value.title);
-    console.log(this.uploadForm.value.description);
-    console.log(this.uploadForm.value.categorie);
-
     const image = new Image();
     image.author = this.author;
     image.title = this.uploadForm.value.title;
     image.description = this.uploadForm.value.description;
     image.categorie = this.uploadForm.value.categorie;
     image.url = this.uploadedFiles[0].url;
+    image.date = this.uploadedFiles[0].file.lastModifiedDate;
     this.imageService.saveImage(image);
     this.imageSavedToDB = false;
     this.fileUploadedToDB = false;
