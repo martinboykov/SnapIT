@@ -37,7 +37,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot(),
     SharedModule
     // InfiniteScrollModule
   ],

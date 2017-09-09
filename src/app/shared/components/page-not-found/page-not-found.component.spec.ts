@@ -1,6 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
+import { AppComponent } from './../../../app.component';
+import { AppModule } from './../../../app.module';
+import { AppRoutingModule } from './../../../app-routing.module';
+import { FooterComponent } from './../footer/footer.component';
+import { HeaderComponent } from './../header/header.component';
+import { ImageFilterPipe } from './../../Pipes/filter-Images.pipe';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { SharedModule } from './../../shared.module';
+import { UploadComponent } from './../upload/upload.component';
 
 describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
@@ -8,7 +17,13 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ]
+      imports: [
+        SharedModule,
+        AppModule
+      ],
+      providers: [
+        { provide: APP_BASE_HREF, useValue: '/' }
+      ]
     })
     .compileComponents();
   }));
