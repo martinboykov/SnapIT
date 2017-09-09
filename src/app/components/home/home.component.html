@@ -32,10 +32,10 @@
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
               [routerLink]="['/login']"
-              *ngIf="!authService.authState">Login</a>
+              *ngIf="!isUserLoggedIn">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
               href="#"
-              *ngIf="!authService.authState"
+              *ngIf="!isUserLoggedIn"
               [routerLink]="['/register']">Register</a>
           </div>
         </div>
@@ -57,11 +57,11 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              [routerLink]="['/login']"
-              *ngIf="!authService.currentUser">Login</a>
+              *ngIf="!isUserLoggedIn"
+              [routerLink]="['/login']">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!authService.currentUser"
-              [routerLink]="['/register']">Register</a>
+              *ngIf="!isUserLoggedIn"
+              [routerLink]="['/register']">>Register</a>
           </div>
         </div>
       </div>
@@ -85,10 +85,10 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!authService.authState"
+              *ngIf="!isUserLoggedIn"
               [routerLink]="['/login']">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!authService.authState"
+              *ngIf="!isUserLoggedIn"
               [routerLink]="['/register']">Register</a>
           </div>
         </div>
@@ -114,8 +114,8 @@
   <hr>
   <div class="gal">
 
-    <ul>
-      <li *ngFor="let image of (images | async)"
+    <ul *ngIf="images">
+      <li *ngFor="let image of images"
         class="img">
         <a [routerLink]="['/image', image.$key]">
           <img src="{{image.url}}" class="tn">

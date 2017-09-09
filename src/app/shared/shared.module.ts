@@ -23,7 +23,6 @@ import { UploadComponent } from './components/upload/upload.component';
   ],
   exports: [
     CommonModule,
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     ImageFilterPipe,

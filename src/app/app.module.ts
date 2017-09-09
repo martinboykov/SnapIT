@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { ContactsComponent } from './components/contacts/contacts.component';
+import { ContactsComponent } from './components/static/contacts/contacts.component';
 import { CoreModule } from './core/core.module';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { AboutComponent } from './components/static/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +31,15 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     GalleryComponent,
     ImageDetailComponent,
     ImageEditComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot(),
     SharedModule
     // InfiniteScrollModule
   ],

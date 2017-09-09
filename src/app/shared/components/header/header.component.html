@@ -29,8 +29,8 @@
                 </a>
           </li>
           <li routerLinkActive="active">
-            <a [routerLink]="['/info']">
-                  Info
+            <a [routerLink]="['/about']">
+                  About
                 </a>
           </li>
         </ul>
@@ -51,11 +51,11 @@
           </li>
           <li routerLinkActive="active">
             <!-- only when logged out -->
-            <a [routerLink]="['/login']" *ngIf="!authService.currentUser">Log In</a>
+            <a [routerLink]="['/login']" *ngIf="!isUserLoggedIn">Log In</a>
             <!-- only when logged in -->
             <!-- <a href="#">Log Out</a> -->
           </li>
-          <li><a style="cursor: pointer;" (click)="onLogout()" *ngIf="authService.currentUser">Logout
+          <li><a style="cursor: pointer;" (click)="onLogout()" *ngIf="isUserLoggedIn">Logout
           </a>
           </li>
         </ul>
