@@ -1,6 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { HighlightDirective } from './../app/shared/directives/highlight.directive';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,7 +34,8 @@ import { AboutComponent } from './components/static/about/about.component';
     ImageDetailComponent,
     ImageEditComponent,
     ProfileComponent,
-    AboutComponent
+    AboutComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

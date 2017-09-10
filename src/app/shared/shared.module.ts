@@ -1,3 +1,4 @@
+
 import { ReversePipe } from './Pipes/filter-last-images.pipe';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +22,8 @@ import { UploadComponent } from './components/upload/upload.component';
     ImageFilterPipe,
     ReversePipe,
     PageNotFoundComponent,
-    UploadComponent
+    UploadComponent,
+
   ],
   exports: [
     CommonModule,
