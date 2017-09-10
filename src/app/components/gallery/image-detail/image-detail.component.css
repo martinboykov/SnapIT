@@ -12,7 +12,8 @@
     padding-right: 50px;
     min-height: 100%;
 }
-.img-responsive{
+
+.img-responsive {
     max-height: 500px;
 }
 
@@ -37,13 +38,16 @@ p {
     float: left;
 }
 
+
+
 .btn-primary {
+    float: left;
     margin-right: 5px;
     margin-top: 20px;
     min-width: 50px;
 }
 
 .delete {
-    float: right;
+    float: left;
     margin-top: 20px;
 }

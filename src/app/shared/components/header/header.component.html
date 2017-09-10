@@ -61,11 +61,11 @@
           <li routerLinkActive="active" >
             <!-- only when logged in -->
             <a (click)="toProfile()"
-              *ngIf="isUserLoggedIn">
+              *ngIf="isUserLoggedIn"
+              style="cursor: pointer;">
               <span class="glyphicon glyphicon-user desctop-only" aria-hidden="true"
               ></span>
-              <span  aria-hidden="true"
-              class="mobile-only">Profile</span>
+              <span class="mobile-only">Profile</span>
               </a>
 
           </li>
