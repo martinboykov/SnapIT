@@ -14,6 +14,7 @@ import { ImageService } from '../../../core/image.service';
 export class ImageDetailComponent implements OnInit {
   public uid: any;
   public image: any;
+  public imageKey;
   public imgUrl;
   public imgDescription;
   public imgTitle;
@@ -33,6 +34,7 @@ export class ImageDetailComponent implements OnInit {
   ngOnInit() {
     this.uid = this.authService.currentUserId;
     this.getImageData(this.route.snapshot.params['id']);
+    this.imageKey = this.route.snapshot.params['id'];
     this.route.params.subscribe(params => {
       this.image = this.db.object('/gallery/' + params['id']);
     });
@@ -41,11 +43,13 @@ export class ImageDetailComponent implements OnInit {
     this.imageService.getImage(key)
       .then(image => {
         this.imgUrl = image.url;
+
         this.imgDescription = image.description;
         this.imgTitle = image.title;
         this.imgAuthor = image.author;
         this.imgAuthorID = image.authorID;
         this.imgCategorie = image.categorie;
+        console.log(this.imageKey);
         console.log(this.uid);
         console.log(this.imgAuthorID);
 
@@ -60,6 +64,10 @@ export class ImageDetailComponent implements OnInit {
 
   }
   returnToGallery() {
+    this.router.navigate(['/gallery']);
+  }
+  delete() {
+    this.imageService.deleteImage(this.imageKey);
     this.router.navigate(['/gallery']);
   }
 }
