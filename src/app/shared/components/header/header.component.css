@@ -20,7 +20,7 @@
     border: 0px;
 }
 
-.navbar-static .active a {
+.navbar-fixed-top .active a {
     background-color: black;
     border-bottom: 5px solid white;
     color: white;
