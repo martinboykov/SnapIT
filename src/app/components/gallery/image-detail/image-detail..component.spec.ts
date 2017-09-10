@@ -1,10 +1,9 @@
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { APP_BASE_HREF } from '@angular/common';
 import { AboutComponent } from './../../static/about/about.component';
 import { AppRoutingModule } from '../../../app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { ContactsComponent } from '../../static/contacts/contacts.component';
 import { CoreModule } from '../../../core/core.module';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
@@ -40,7 +39,7 @@ describe('ImagesComponent', () => {
         AboutComponent
       ],
       imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,

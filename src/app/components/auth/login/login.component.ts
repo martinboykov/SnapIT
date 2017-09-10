@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { AuthService } from './../../../core/auth.service';
 import { EMAIL_REGEX } from './../../../shared/constants';
+import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   toggleReset = false;
   passReset = false; // set to true when password reset is triggered
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, @Inject('IAuthService') private authService: IAuthService) { }
 
   ngOnInit() {
     this.buildForm();

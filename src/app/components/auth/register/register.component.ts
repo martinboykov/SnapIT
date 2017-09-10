@@ -1,8 +1,8 @@
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DIRTY_WORDS_REGEX, EMAIL_REGEX } from '../../../shared/constants';
 
-import { AuthService } from './../../../core/auth.service';
+import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   forbiddenUserNames = new RegExp(DIRTY_WORDS_REGEX, 'i');
   noWhiteSpaces = new RegExp(/[\r\n\t\f ]/);
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, @Inject('IAuthService') private authService: IAuthService) { }
 
   ngOnInit() {
     this.buildForm();

@@ -17,7 +17,12 @@ import { firebase } from '../../environments/firebase';
     AngularFireAuthModule,
   ],
   declarations: [],
-  providers: [AuthService, AuthGuard, ImageService, Upload]
+  providers: [
+    {provide: 'IAuthService', useClass: AuthService},
+    {provide: AuthGuard, useClass: AuthGuard},
+    {provide: ImageService, useClass: ImageService},
+    {provide: Upload, useClass: Upload}
+    ]
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

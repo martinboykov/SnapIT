@@ -1,14 +1,14 @@
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { AuthService } from './../../../core/auth.service';
 import * as files from 'lodash';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { DEFAULT_SELECT_STATUS } from '../../constants';
 import { FileItem } from '../../models/file';
+import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Image } from './../../models/image';
 import { ImageService } from './../../../core/image.service';
+import { Router } from '@angular/router';
 import { Upload as UploadService } from '../../../core/upload.service';
 import { categoriesList } from './../../enums/categories.enum';
 
@@ -32,9 +32,10 @@ export class UploadComponent implements OnInit {
   public images;
   public image;
 
-  constructor(private imageService: ImageService,
+  constructor(
+    private imageService: ImageService,
     private uploadServise: UploadService,
-    private authService: AuthService,
+    @Inject('IAuthService') private authService: IAuthService,
     private formBuilder: FormBuilder,
     private router: Router) {
     this.selectStatus = DEFAULT_SELECT_STATUS;

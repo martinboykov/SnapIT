@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
-import { AuthService } from './../../core/auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { IAuthService } from '../../core/contracts/auth-servise-interface';
 import { Image } from './../../shared/models/image';
 import { ImageService } from './../../core/image.service';
 import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
@@ -14,7 +14,7 @@ import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 export class HomeComponent implements OnInit  {
   images: FirebaseListObservable<Image[]>;
 
-  constructor(private authService: AuthService, private imageService: ImageService) { }
+  constructor(@Inject('IAuthService') private authService: IAuthService, private imageService: ImageService) { }
 
   ngOnInit() {
     this.images = this.imageService.getImagesList(({limitToLast: 12}));
