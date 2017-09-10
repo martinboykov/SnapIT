@@ -33,7 +33,6 @@ const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/page-not-found' },
-
 ];
 
 @NgModule({

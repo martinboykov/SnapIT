@@ -10,22 +10,11 @@ import { IAuthService } from '../../../core/contracts/auth-servise-interface';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  user;
-
-  uid: string;
-
 
   constructor( @Inject('IAuthService') private authService: IAuthService, private router: Router) {
-    // this.uid = authService.currentUserId;
   }
 
   ngOnInit() {
-    // this.uid = this.authService.currentUserId;
-    // this.user = this.authService.getUser(this.uid);
-    // this.user.subscribe((userData) => {
-    //   this.userID = userData.uid;
-    //   console.log(this.userID);
-    // });
   }
   onLogout() {
     this.authService.signOut();

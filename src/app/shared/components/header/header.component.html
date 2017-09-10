@@ -23,7 +23,6 @@
           </div>
         </a>
       </div>
-
       <div id="navbar"
         class="collapse navbar-collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
@@ -59,11 +58,14 @@
                   <span >Upload</span>
               </a>
           </li>
-          <li routerLinkActive="active">
+          <li routerLinkActive="active" >
             <!-- only when logged in -->
             <a (click)="toProfile()"
               *ngIf="isUserLoggedIn">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-user desctop-only" aria-hidden="true"
+              ></span>
+              <span  aria-hidden="true"
+              class="mobile-only">Profile</span>
               </a>
 
           </li>

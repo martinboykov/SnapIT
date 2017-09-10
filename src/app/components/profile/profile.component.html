@@ -1,41 +1,32 @@
-<div class="user-profile">
-    <div class="wrapper-profile">
-        <h1> {{username}} </h1>
+<div class="container profile-main">
+    <div class="inside-info">
+        <img class="user-pic img-responsive"
+            src="./../../../assets/img/profile-pictures.png"
+            alt='Profile picture'>
     </div>
-</div>
-<div class="inside-info">
-    <img class="user-pic" [src]="profilePicUrl" alt='Profile picture'>
-</div>
-<div class="right">
-    <div class="email">
+    <div class="user-name">
+        <h1> {{user?.name}} </h1>
+    </div>
+    <div class="user-email">
         <span class="labels">
-            Email: {{email}}
+                <strong>Email: {{user?.email}}</strong>
         </span>
     </div>
-    <div class="name" >
-        <span class="labels">
-            Name: {{firstName}} {{lastName}}
-        </span>
-    </div>
-    <div class="edit">
-        <a [href]="editHref">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                Edit Profile 
-        </a>
-    </div>
-</div>
-<div class="uploads">
-    <div> {{firstName}}'S UPLOADS: </div>
-    <div *ngFor="let upload of uploads">
-      {{ upload }}
-    </div>
-</div>
-<div class="favourites">
-    <i class="fa fa-star-o fa-2" aria-hidden="true"></i>
-    <div> FAVOURITES: </div>
-    <div *ngFor="let favourite of favourites">
-        {{ favourite }}
-    </div>
-</div>
+    <hr>
+
+        <h2 id="center">Latest Photos</h2>
+        <hr>
+        <div class="gal">
+
+            <ul *ngIf="images">
+                <li *ngFor="let image of (images  | reverse)"
+                    class="img">
+                    <a [routerLink]="['/image', image.$key]">
+                            <img src="{{image.url}}" class="tn">
+                            </a>
+                </li>
+            </ul>
+        </div>
 
 
+</div>
