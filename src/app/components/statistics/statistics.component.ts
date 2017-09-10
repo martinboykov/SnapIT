@@ -1,5 +1,6 @@
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ImageService } from './../../core/image.service';
+import { UserService } from './../../core/user.service';
 import { Component, OnInit } from '@angular/core';
 import 'firebase/storage';
 
@@ -20,10 +21,12 @@ export class StatisticsComponent implements OnInit {
   lengthOther = 0;
   lengthAll = 0;
   results: Array<Object>;
-  constructor(private imageService: ImageService, private db: AngularFireDatabase) { }
+  constructor(private imageService: ImageService,
+     private db: AngularFireDatabase,
+    private userService: UserService) { }
 
   ngOnInit() {
-    this.db.list('/users')
+    this.userService.getUsers()
       .subscribe(img => { img.forEach(image => { this.lengthUsers++; }); });
     this.imageService.getImages()
       .subscribe(img => { img.forEach(image => { this.lengthAll = this.lengthAll + 1; }); });
