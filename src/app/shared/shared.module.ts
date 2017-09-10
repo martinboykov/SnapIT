@@ -9,12 +9,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { ImageFilterPipe } from './Pipes/filter-Images.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { ToasterModule } from 'angular2-toaster';
 
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToasterModule
   ],
   declarations: [
     HeaderComponent,

@@ -1,3 +1,4 @@
+import { ToasterService } from 'angular2-toaster';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
 import { DIRTY_WORDS_REGEX, EMAIL_REGEX } from '../../../shared/constants';
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
   forbiddenUserNames = new RegExp(DIRTY_WORDS_REGEX, 'i');
   noWhiteSpaces = new RegExp(/[\r\n\t\f ]/);
 
-  constructor(private router: Router, @Inject('IAuthService') private authService: IAuthService) { }
+  constructor(private router: Router,
+    @Inject('IAuthService') private authService: IAuthService,
+    private toasterService: ToasterService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -28,7 +31,10 @@ export class RegisterComponent implements OnInit {
   // authentication
   signup() {
     this.authService.signupUser(this.signupForm)
-      .then(resolve => this.router.navigate(['/home']))
+      .then(resolve => {
+        this.router.navigate(['/home']);
+        this.toasterService.pop('success', 'Welcome');
+      })
       .catch(error => this.errorMsg = error.message);
   }
 
@@ -38,7 +44,7 @@ export class RegisterComponent implements OnInit {
       'username': new FormControl('', [Validators.required, Validators.minLength(4), this.forbiddenNameValidator(this.forbiddenUserNames),
       this.forbiddenWhiteSpaces(this.noWhiteSpaces)]),
       'email': new FormControl('', [Validators.required, Validators.email,
-        Validators.pattern(EMAIL_REGEX)]),
+      Validators.pattern(EMAIL_REGEX)]),
       'password': new FormControl('', [Validators.required, Validators.minLength(6), this.forbiddenWhiteSpaces(this.noWhiteSpaces)])
       // 'passwordCheck': new FormGroup({
       //   'password': new FormControl('', [Validators.required,

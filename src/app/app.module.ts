@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/static/about/about.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AboutComponent } from './components/static/about/about.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,

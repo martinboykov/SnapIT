@@ -4,6 +4,8 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { EMAIL_REGEX } from './../../../shared/constants';
 import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
+import { ToasterService } from 'angular2-toaster';
+
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,9 @@ export class LoginComponent implements OnInit {
   toggleReset = false;
   passReset = false; // set to true when password reset is triggered
 
-  constructor(private router: Router, @Inject('IAuthService') private authService: IAuthService) { }
+  constructor(private router: Router,
+    @Inject('IAuthService') private authService: IAuthService,
+    private toasterService: ToasterService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -33,7 +37,11 @@ export class LoginComponent implements OnInit {
     // console.log(password);
 
     this.authService.loginUser(email, password)
-      .then(resolve => this.router.navigate(['/home']))
+      .then(resolve => {
+        this.router.navigate(['/home']);
+        this.toasterService.pop('success', 'Welcome!');
+      }
+      )
       .catch(error => this.errorMsg = error.message);
   }
 

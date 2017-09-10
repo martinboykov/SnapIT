@@ -2,32 +2,22 @@
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button button
-          type="button"
-          class="navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#navbar"
-          aria-expanded="false"
+        <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
           aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand"
-          [routerLink]="['/']"
-          title="TheUnevenKangaroo">
+        <a class="navbar-brand" [routerLink]="['/']" title="TheUnevenKangaroo">
           <div class="wrapper">
-            <img src="./assets/img/logo.png"
-              class="logo"><span>SnapIT</span>
+            <img src="./assets/img/logo.png" class="logo"><span>SnapIT</span>
           </div>
         </a>
       </div>
-      <div id="navbar"
-        class="collapse navbar-collapse navbar-responsive-collapse">
+      <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact:true}">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
             <a [routerLink]="['/']">
                   Home
                 </a>
@@ -53,16 +43,14 @@
           </li>
           <li routerLinkActive="active">
             <!-- only for logged in users -->
-            <a id= "upload-link" [routerLink]="['/upload']">
+            <a id="upload-link" [routerLink]="['/upload']">
                   <span class="glyphicon glyphicon-cloud-upload desctop-only" aria-hidden="true"></span>
                   <span >Upload</span>
               </a>
           </li>
-          <li routerLinkActive="active" >
+          <li routerLinkActive="active">
             <!-- only when logged in -->
-            <a (click)="toProfile()"
-              *ngIf="isUserLoggedIn"
-              style="cursor: pointer;">
+            <a (click)="toProfile()" *ngIf="isUserLoggedIn" style="cursor: pointer;">
               <span class="glyphicon glyphicon-user desctop-only" aria-hidden="true"
               ></span>
               <span class="mobile-only">Profile</span>
@@ -71,19 +59,17 @@
           </li>
           <li routerLinkActive="active">
             <!-- only when logged out -->
-            <a [routerLink]="['/login']"
-              *ngIf="!isUserLoggedIn">Log In</a>
+            <a [routerLink]="['/login']" *ngIf="!isUserLoggedIn">Log In</a>
 
           </li>
           <li routerLinkActive="active">
             <!-- only when logged in -->
-            <a style="cursor: pointer;"
-              (click)="onLogout()"
-              *ngIf="isUserLoggedIn">Logout
+            <a style="cursor: pointer;" (click)="onLogout()" *ngIf="isUserLoggedIn">Logout
           </a>
           </li>
         </ul>
       </div>
+      <toaster-container></toaster-container>
     </div>
   </div>
 </nav>

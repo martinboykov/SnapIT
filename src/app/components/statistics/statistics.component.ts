@@ -22,7 +22,6 @@ export class StatisticsComponent implements OnInit {
   lengthAll = 0;
   results: Array<Object>;
   constructor(private imageService: ImageService,
-     private db: AngularFireDatabase,
     private userService: UserService) { }
 
   ngOnInit() {
@@ -30,7 +29,8 @@ export class StatisticsComponent implements OnInit {
       .subscribe(img => { img.forEach(image => { this.lengthUsers++; }); });
     this.imageService.getImages()
       .subscribe(img => { img.forEach(image => { this.lengthAll = this.lengthAll + 1; }); });
-    this.db.list('/gallery')
+
+    this.imageService.getImages()
       .subscribe(img => {
         img.forEach(image => {
           if (image.categorie === 'Landscape') {
@@ -64,8 +64,6 @@ export class StatisticsComponent implements OnInit {
         });
       });
 
-    // this.getcategoryLength('Portrait', this.lengthPortrait);
-
     this.imageService.getImages()
       .subscribe(img => {
         img.forEach(image => {
@@ -76,14 +74,4 @@ export class StatisticsComponent implements OnInit {
       });
 
   }
-
-   getcategoryLength(category: string, length) {
-
-     this.imageService.getImages()
-       .subscribe(img => {
-         img.forEach(image => {
-           length = length + 2;
-         });
-     });
-   }
 }

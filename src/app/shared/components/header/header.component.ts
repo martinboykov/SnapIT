@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { Component, Inject, OnInit } from '@angular/core';
 import { IAuthService } from '../../../core/contracts/auth-servise-interface';
+import { ToasterModule } from 'angular2-toaster';
+
 
 @Component({
   selector: 'app-header',

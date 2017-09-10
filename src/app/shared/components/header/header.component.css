@@ -63,6 +63,10 @@ ul>li>a:hover {
     margin: auto;
 }
 
+.ng-tns-c3-0{
+    margin-top:40px !important;
+}
+
 @media only screen and (max-width: 768px) {
     .desctop-only {
         display: none;

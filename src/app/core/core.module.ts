@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { ImageService } from './image.service';
 import { Upload } from './upload.service';
 import { firebase } from '../../environments/firebase';
+import { ToasterService } from 'angular2-toaster';
 
 @NgModule({
   imports: [
@@ -19,12 +20,13 @@ import { firebase } from '../../environments/firebase';
   ],
   declarations: [],
   providers: [
-    {provide: 'IAuthService', useClass: AuthService},
-    {provide: AuthGuard, useClass: AuthGuard},
-    {provide: ImageService, useClass: ImageService},
+    { provide: 'IAuthService', useClass: AuthService },
+    { provide: AuthGuard, useClass: AuthGuard },
+    { provide: ImageService, useClass: ImageService },
     { provide: UserService, useClass: UserService },
-    {provide: Upload, useClass: Upload}
-    ]
+    { provide: Upload, useClass: Upload },
+    { provide: ToasterService, useClass: ToasterService}
+  ]
 })
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
