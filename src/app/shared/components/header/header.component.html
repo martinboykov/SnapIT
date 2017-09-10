@@ -60,13 +60,22 @@
               </a>
           </li>
           <li routerLinkActive="active">
+            <!-- only when logged in -->
+            <a (click)="toProfile()"
+              *ngIf="isUserLoggedIn">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              </a>
+
+          </li>
+          <li routerLinkActive="active">
             <!-- only when logged out -->
             <a [routerLink]="['/login']"
               *ngIf="!isUserLoggedIn">Log In</a>
-            <!-- only when logged in -->
-            <!-- <a href="#">Log Out</a> -->
+
           </li>
-          <li><a style="cursor: pointer;"
+          <li routerLinkActive="active">
+            <!-- only when logged in -->
+            <a style="cursor: pointer;"
               (click)="onLogout()"
               *ngIf="isUserLoggedIn">Logout
           </a>
