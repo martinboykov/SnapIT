@@ -21,14 +21,27 @@ export class ImageService {
 
   constructor(
     private angularFireAuth: AngularFireAuth,
-     private db: AngularFireDatabase,
-      @Inject('IAuthService') private authService: IAuthService) {
+    private db: AngularFireDatabase,
+    @Inject('IAuthService') private authService: IAuthService) {
     this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
 
       }
     });
+  }
+  // INFINITI SCROLL
+  getImagesInfinityScroll(batch, lastKey?) {
+    const query = {
+      orderByKey: true,
+      limitToFirst: batch,
+    };
+    if (lastKey) {
+      query['startAt'] = lastKey;
+      return this.db.list('gallery', {
+        query
+      });
+    }
   }
 
   saveImage(image: Image) {
@@ -63,17 +76,6 @@ export class ImageService {
     this.images.remove(key)
       .catch(error => console.log(error));
   }
+
 }
-  // INFINITI SCROLL
-  // getImages(batch, lastKey?) {
-  //   const query = {
-  //     orderByKey: true,
-  //     limitToFirst: batch,
-  //   };
-  //   if (lastKey) {
-  //   query['startAt'] = lastKey;
-  //     return this.db.list('gallery', {
-  //       query
-  //     });
-  //   }
-  // }
+
