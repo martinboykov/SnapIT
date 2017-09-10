@@ -63,11 +63,22 @@ export class ImageDetailComponent implements OnInit {
     this.router.navigate(['edit'], { relativeTo: this.route });
 
   }
-  returnToGallery() {
-    this.router.navigate(['/gallery']);
-  }
   delete() {
     this.imageService.deleteImage(this.imageKey);
     this.router.navigate(['/gallery']);
   }
+  returnToGallery() {
+    this.router.navigate(['/gallery']);
+  }
+  get userID(): string {
+    return this.authService.currentUserId;
+  }
+  toProfile() {
+    // this.router.navigate(['/profile/', this.userID]);
+    this.router.navigate([`/profile/${this.userID}`]);
+    console.log(this.userID);
+
+  }
+
+
 }

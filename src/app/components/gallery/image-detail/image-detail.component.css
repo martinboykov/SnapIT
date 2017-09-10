@@ -12,6 +12,9 @@
     padding-right: 50px;
     min-height: 100%;
 }
+.img-responsive{
+    max-height: 500px;
+}
 
 .wrapper {
     min-height: 100%;
