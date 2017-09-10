@@ -3,8 +3,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AuthGuard } from '../auth-guard.service';
 import { AuthService } from './../auth.service';
 import { IAuthService } from './../contracts/auth-servise-interface';
-import { MockAngularFireAuth } from './../services-mocks/angular-fire-auth.mock';
-import { MockAngularFireDatabase } from './../services-mocks/angular-fire-database.mock';
 import { MockAuthService } from '../services-mocks/auth.service.mock';
 
 describe('AuthGuardService', () => {
