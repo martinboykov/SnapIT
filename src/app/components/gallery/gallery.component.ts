@@ -18,17 +18,7 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./gallery.component.css']
 })
 
-export class GalleryComponent implements OnInit  {
-  // images: FirebaseListObservable<Image[]>;
-  // filterBy?= 'all';
-  // heading = 'Latest Photos';
-
-
-  // constructor(private imageService: ImageService) { }
-
-  // ngOnInit() {
-  //   this.images = this.imageService.getImages();
-  // }
+export class GalleryComponent implements OnInit {
 
   //   INFINITY SCROLL
   images = new BehaviorSubject([]);
@@ -38,8 +28,7 @@ export class GalleryComponent implements OnInit  {
   heading = 'All Photos';
 
   batch = 6;         // size of each query
-  // lastKey = `${this.lastImageKey}`;      // key to offset next query from
-  lastKey ;      // key to offset next query from
+  lastKey;      // key to offset next query from
   finished = false;  // boolean when end of database is reached
   constructor(private imageService: ImageService) { }
 
@@ -59,11 +48,10 @@ export class GalleryComponent implements OnInit  {
     this.getImages();
   }
   private getImages() {
-    // tslint:disable-next-line:curly
-    if (this.finished)
+
+    if (this.finished) {
       return;
-    // tslint:disable-next-line:curly
-    else
+    } else {
       this.imageService
         .getImagesInfinityScroll(this.batch + 1, this.lastKey)
         .do(images => {
@@ -85,6 +73,7 @@ export class GalleryComponent implements OnInit  {
         })
         .take(1)
         .subscribe();
+    }
   }
 }
 
