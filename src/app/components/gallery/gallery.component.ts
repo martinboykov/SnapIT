@@ -3,6 +3,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Image } from '../../shared/models/image';
 import { ImageFilterPipe } from './../../shared/Pipes/filter-Images.pipe';
+import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 import { ImageService } from './../../core/image.service';
 import { Observable } from 'rxjs/Observable';
 // import { BehaviorSubject } from 'rxjs/BehaviorSubject';

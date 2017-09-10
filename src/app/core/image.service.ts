@@ -38,6 +38,9 @@ export class ImageService {
   getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');
   }
+  // getImagesReverse() {
+  //   this.db.list('/gallery').map((array) => array.reverse());
+  // }
 
   getImage(key: string) {
     return firebase.database().ref('gallery/' + key).once('value')

@@ -4,6 +4,7 @@ import { AuthService } from './../../core/auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Image } from './../../shared/models/image';
 import { ImageService } from './../../core/image.service';
+import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,12 @@ import { ImageService } from './../../core/image.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit  {
-  images: Array<Image>;
+  images: FirebaseListObservable<Image[]>;
 
   constructor(private authService: AuthService, private imageService: ImageService) { }
 
   ngOnInit() {
-    this.imageService.getImagesList(({limitToLast: 12})).subscribe(images => {
-      this.images = images;
-    });
+    this.images = this.imageService.getImagesList(({limitToLast: 12}));
   }
 
   get isUserLoggedIn(): boolean{

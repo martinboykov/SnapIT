@@ -1,3 +1,4 @@
+import { ReversePipe } from './Pipes/filter-last-images.pipe';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
@@ -18,6 +19,7 @@ import { UploadComponent } from './components/upload/upload.component';
     HeaderComponent,
     FooterComponent,
     ImageFilterPipe,
+    ReversePipe,
     PageNotFoundComponent,
     UploadComponent
   ],
@@ -26,6 +28,7 @@ import { UploadComponent } from './components/upload/upload.component';
     HeaderComponent,
     FooterComponent,
     ImageFilterPipe,
+    ReversePipe,
     PageNotFoundComponent,
     UploadComponent
   ]

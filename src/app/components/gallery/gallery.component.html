@@ -17,7 +17,7 @@
     <hr>
     <div class="gal">
     <ul >
-      <li *ngFor="let image of (images | async |  imageFilter:filterBy)"
+      <li *ngFor="let image of (images | async | reverse |  imageFilter:filterBy )"
         class="img">
         <a [routerLink]="['/image', image.$key]">
             <img src="{{image.url}}" class="tn">

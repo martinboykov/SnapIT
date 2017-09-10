@@ -115,7 +115,7 @@
   <div class="gal">
 
     <ul *ngIf="images">
-      <li *ngFor="let image of images"
+      <li *ngFor="let image of (images | async | reverse)"
         class="img">
         <a [routerLink]="['/image', image.$key]">
           <img src="{{image.url}}" class="tn">
