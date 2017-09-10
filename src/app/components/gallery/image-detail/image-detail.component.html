@@ -24,7 +24,7 @@
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="edit()"
-            [disabled]="!editAuthorOnly"
+              [disabled]="!editAuthorOnly"
               class="btn btn-primary">Edit</button>
           </div>
         </div>
@@ -32,6 +32,13 @@
           <div class="col-cs-12">
             <button (click)="returnToGallery()"
               class="btn btn-primary">Return</button>
+          </div>
+        </div>
+        <div class="col-cs-12">
+          <div class="col-cs-12 delete">
+            <button (click)="delete()"
+              [disabled]="!editAuthorOnly"
+              class="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

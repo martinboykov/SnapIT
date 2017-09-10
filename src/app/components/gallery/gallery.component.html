@@ -30,8 +30,9 @@
 
    <div class="gal"  >
       <div *ngFor="let image of images | async |  imageFilter:filterBy  ">
-        <img [src]="image?.url"
-        class="tn">
+          <a [routerLink]="['/image', image.$key]">
+            <img [src]="image?.url" class="tn">
+            </a>
       </div>
       <div infiniteScroll
         [infiniteScrollDistance]="3"
