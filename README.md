@@ -14,10 +14,9 @@ The application can be used from both non-registered users /public part/ and reg
 
 The private parts /image upload, image edit, personal profile page/ are available only for signed in users.
 
-
-The server is build through Express
 Firebase is used as a database provider
 Firebase is used for user's authentication
+
 Client side
 
 The front edn is mainly using standard CSS3 and Bootstrap. The response is accomplished through Bootstrap and CSS3 as well. Client side validation prevents input of invalid data states from the public to the server part. Invalid input is followed with an appropriate message. The user interface is aimed to be user friendly and provides an easy functionality for its clients.
