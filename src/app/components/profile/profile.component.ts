@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 
 export class ProfileComponent implements OnInit {
 
+
+
   // get the data through a service from the database - hardcoded data only for test
   id = 1;
   logged;
@@ -36,6 +38,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.user = this.authService._currentUser;
+    this.userID = this.authService.currentUserId;
   }
 }

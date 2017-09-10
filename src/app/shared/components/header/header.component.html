@@ -1,24 +1,34 @@
 <nav class="navbar">
-  <div class="navbar navbar-default navbar-static ">
+  <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        <button button
+          type="button"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar"
+          aria-expanded="false"
           aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand" [routerLink]="['/']" title="TheUnevenKangaroo">
+        <a class="navbar-brand"
+          [routerLink]="['/']"
+          title="TheUnevenKangaroo">
           <div class="wrapper">
-            <img src="./assets/img/logo.png" class="logo"><span>SnapIT</span>
+            <img src="./assets/img/logo.png"
+              class="logo"><span>SnapIT</span>
           </div>
         </a>
       </div>
 
-      <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+      <div id="navbar"
+        class="collapse navbar-collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
             <a [routerLink]="['/']">
                   Home
                 </a>
@@ -50,12 +60,24 @@
               </a>
           </li>
           <li routerLinkActive="active">
-            <!-- only when logged out -->
-            <a [routerLink]="['/login']" *ngIf="!isUserLoggedIn">Log In</a>
             <!-- only when logged in -->
-            <!-- <a href="#">Log Out</a> -->
+            <a (click)="toProfile()"
+              *ngIf="isUserLoggedIn">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              </a>
+
           </li>
-          <li><a style="cursor: pointer;" (click)="onLogout()" *ngIf="isUserLoggedIn">Logout
+          <li routerLinkActive="active">
+            <!-- only when logged out -->
+            <a [routerLink]="['/login']"
+              *ngIf="!isUserLoggedIn">Log In</a>
+
+          </li>
+          <li routerLinkActive="active">
+            <!-- only when logged in -->
+            <a style="cursor: pointer;"
+              (click)="onLogout()"
+              *ngIf="isUserLoggedIn">Logout
           </a>
           </li>
         </ul>

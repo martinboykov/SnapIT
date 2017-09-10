@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -21,6 +22,7 @@ import { firebase } from '../../environments/firebase';
     {provide: 'IAuthService', useClass: AuthService},
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: ImageService, useClass: ImageService},
+    { provide: UserService, useClass: UserService },
     {provide: Upload, useClass: Upload}
     ]
 })

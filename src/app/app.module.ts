@@ -1,4 +1,5 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { SharedModule } from './shared/shared.module';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/static/about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -40,8 +42,8 @@ import { AboutComponent } from './components/static/about/about.component';
     ReactiveFormsModule,
     AppRoutingModule,
     CoreModule.forRoot(),
-    SharedModule
-    // InfiniteScrollModule
+    SharedModule,
+    InfiniteScrollModule
   ],
   bootstrap: [AppComponent]
 })

@@ -29,9 +29,27 @@ h2{
     column-count: 3;
 }
 
-.gal > ul>li>a img {
+/* .gal > ul>li>a img {
     width: 100%;
     padding: 7px;
+} */
+.gal >div img {
+    width: 100%;
+    padding: 7px;
+}
+.end-of-db{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #eee;
+    border-radius: 25px;
+    background-color:#31B0D5;
+    box-shadow:#555 1px 1px 8px 1px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
 }
 
 @media (max-width: 500px) {

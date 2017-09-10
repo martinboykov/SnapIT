@@ -21,8 +21,8 @@ export class ImageService {
 
   constructor(
     private angularFireAuth: AngularFireAuth,
-     private db: AngularFireDatabase,
-      @Inject('IAuthService') private authService: IAuthService) {
+    private db: AngularFireDatabase,
+    @Inject('IAuthService') private authService: IAuthService) {
     this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
@@ -30,10 +30,22 @@ export class ImageService {
       }
     });
   }
+  // INFINITI SCROLL
+  getImagesInfinityScroll(batch, lastKey?) {
+    const query = {
+      orderByKey: true,
+      limitToFirst: batch,
+    };
+    if (lastKey) {
+      query['startAt'] = lastKey;
+      return this.db.list('gallery', {
+        query
+      });
+    }
+  }
 
   saveImage(image: Image) {
     image.authorID = this.uid;
-
     this.db.list(`/gallery`).push(image);
     // this.db.list(`users/${this.uid}/images`)(image);
   }
@@ -41,9 +53,6 @@ export class ImageService {
   getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');
   }
-  // getImagesReverse() {
-  //   this.db.list('/gallery').map((array) => array.reverse());
-  // }
 
   getImage(key: string) {
     return firebase.database().ref('gallery/' + key).once('value')
@@ -63,17 +72,6 @@ export class ImageService {
     this.images.remove(key)
       .catch(error => console.log(error));
   }
+
 }
-  // INFINITI SCROLL
-  // getImages(batch, lastKey?) {
-  //   const query = {
-  //     orderByKey: true,
-  //     limitToFirst: batch,
-  //   };
-  //   if (lastKey) {
-  //   query['startAt'] = lastKey;
-  //     return this.db.list('gallery', {
-  //       query
-  //     });
-  //   }
-  // }
+
