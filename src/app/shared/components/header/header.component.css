@@ -3,7 +3,7 @@
     border: 0px;
 }
 
-.navbar-static {
+.navbar-fixed-top {
     margin: 0px;
     border: 0px;
 }
@@ -58,8 +58,18 @@ ul>li>a:hover {
     border-bottom: 5px solid white;
 }
 
+.glyphicon-user-mobile{
+    color:white;
+    margin: auto;
+}
+
 @media only screen and (max-width: 768px) {
     .desctop-only {
+        display: none;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .mobile-only {
         display: none;
     }
 }

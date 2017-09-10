@@ -1,7 +1,11 @@
+import { Image } from './../../shared/models/image';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { ImageService } from './../../core/image.service';
 import { Component, Inject, OnInit } from '@angular/core';
 
 import { IAuthService } from '../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
+import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 
 @Component({
   selector: 'app-profile',
@@ -14,20 +18,11 @@ export class ProfileComponent implements OnInit {
 
 
   // get the data through a service from the database - hardcoded data only for test
-  id = 1;
-  logged;
-  user: Object;
-  userID: string;
-  username = 'Misha_90';
-  firstName = 'Mihaela';
-  lastName = 'Ivanova';
-  email = 'myemail@gmail.com';
-  uploads = ['The Girl', 'The Boy', 'Some Other Photo'];
-  favourites = ['The Tree', 'Lonely Man', 'Sunset over Alaska', 'Sea Storm'];
-  profilePicUrl = 'http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png';
-  editHref = 'user/edit/' + this.id;
 
-  constructor(@Inject('IAuthService') private authService: IAuthService, private router: Router) { }
+  user;
+  userID: string;
+  images;
+  constructor( @Inject('IAuthService') private authService: IAuthService, private router: Router, private imageService: ImageService) { }
 
   getUserUploads() {
     // implement getting users uploads from DB when user is authenticated
@@ -39,5 +34,15 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.userID = this.authService.currentUserId;
+    this.authService.getUser(this.userID).subscribe((userData) => {
+      this.user = userData;
+      console.log(this.user.name);
+      console.log(this.user.email);
+    });
+
+
+    this.imageService.getImagesList(({ equalTo: 'UycYXhaZknhWY1pFo5D2Hmkb5Y53', orderByChild: 'authorID' })).subscribe(images => {
+      this.images = images;
+    });
   }
 }
