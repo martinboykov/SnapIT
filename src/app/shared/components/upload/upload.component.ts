@@ -85,6 +85,7 @@ export class UploadComponent implements OnInit {
     image.url = this.uploadedFiles[0].url;
     image.date = this.uploadedFiles[0].file.lastModifiedDate;
     this.imageService.saveImage(image);
+    // this.imageService.saveImageCarousel(image);
     this.imageSavedToDB = false;
     this.fileUploadedToDB = false;
     this.router.navigate([`/image/${this.image.$key}`]);

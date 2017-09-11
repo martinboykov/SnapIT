@@ -16,8 +16,8 @@
 .wrapper {
     margin: 30px;
     min-height: 100%;
-    margin: 0 auto -49px;
-    ;
+    /* margin: 0 auto -49px;
+    ; */
 }
 
 h3,

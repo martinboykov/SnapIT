@@ -48,16 +48,28 @@ export class ImageService {
     this.db.list(`/gallery`).push(image);
     // this.db.list(`users/${this.uid}/images`)(image);
   }
+  saveImageCarousel(image: Image) {
+    image.authorID = this.uid;
+    this.db.list(`/carousel`).push(image);
+    // this.db.list(`users/${this.uid}/images`)(image);
+  }
 
   getImages(): FirebaseListObservable<Image[]> {
     return this.db.list('gallery');
   }
+  getImagesCarousel(): FirebaseListObservable<Image[]> {
+    return this.db.list('carousel');
+  }
+
 
   getImage(key: string) {
     return firebase.database().ref('gallery/' + key).once('value')
       .then((snap) => snap.val());
   }
-
+  getImageCarousel(key: string) {
+    return firebase.database().ref('gallery/' + key).once('value')
+      .then((snap) => snap.val());
+  }
   getImagesList(query = {}): FirebaseListObservable<Image[]> {
     this.images = this.db.list('/gallery', {
       query: query

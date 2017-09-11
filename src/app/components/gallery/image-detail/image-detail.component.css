@@ -3,6 +3,7 @@
     margin: 0 auto;
     margin-bottom: 50px;
     box-shadow: #555 2px 2px 2px 1px;
+    max-height: 450px;
 }
 
 .container {
@@ -13,14 +14,11 @@
     min-height: 100%;
 }
 
-.img-responsive {
-    max-height: 500px;
-}
 
 .wrapper {
     min-height: 100%;
-    margin: 0 auto -49px;
-    ;
+    /* margin: 0 auto -49px;
+    ; */
 }
 
 h3,

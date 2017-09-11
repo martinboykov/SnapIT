@@ -6,6 +6,7 @@ import { FileItem } from './../shared/models/file';
 import { Image } from './../shared/models/image';
 import { Injectable } from '@angular/core';
 import { UPLOAD_FOLDER } from '../shared/constants';
+import { UPLOAD_FOLDER_CAROUSEL } from '../shared/constants';
 
 @Injectable()
 export class Upload {
@@ -16,6 +17,7 @@ export class Upload {
         file.isUploading = true;
         const uploadTask: firebase.storage.UploadTask = storageRef
             .child(`${UPLOAD_FOLDER}/${file.file.name}`)
+            // .child(`${UPLOAD_FOLDER_CAROUSEL}/${file.file.name}`)
             .put(file.file);
 
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
@@ -39,7 +41,6 @@ export class Upload {
         const storageRef = firebase.storage().ref();
         const desertRef = storageRef.child(`${UPLOAD_FOLDER}/${name}`);
         const deletion = desertRef.delete();
-
         return deletion;
     }
 }

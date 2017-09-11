@@ -25,7 +25,7 @@ export class GalleryComponent implements OnInit {
   filterBy?= 'all';
   heading = 'All Photos';
 
-  batch = 6;         // size of each query
+  batch = 12;         // size of each query
   lastKey;      // key to offset next query from
   finished = false;  // boolean when end of database is reached
   constructor(private imageService: ImageService) { }
