@@ -35,11 +35,15 @@ export class ProfileComponent implements OnInit {
       this.uid = userData.uid;
       console.log(this.user.name);
       console.log(this.user.email);
+
     });
-
-
-    this.imageService.getImagesList(({ equalTo: this.uid, orderByChild: 'authorID' })).subscribe(images => {
-      this.images = images;
+    this.imageService.getImagesList(({ orderByChild: 'authorID', equalTo: this.uid})).subscribe(images => {
+      console.log(images);
+      this.images = images.filter(img => {
+        console.log(img);
+        console.log(this.authService.currentUserId);
+        return img.authorID === this.authService.currentUserId;
+      });
     });
   }
 }
