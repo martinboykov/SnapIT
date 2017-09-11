@@ -35,8 +35,6 @@ export class ImageEditComponent implements OnInit {
     this.buildForm();
   }
 
-
-
   getImageData(key: string) {
     this.imageService.getImage(key)
       .then(image => {
@@ -47,25 +45,26 @@ export class ImageEditComponent implements OnInit {
         this.imgCategorie = image.categorie;
       });
   }
+
   buildForm(): void {
     this.editForm = new FormGroup({
       'title': new FormControl('', [Validators.required]),
       'description': new FormControl('', [Validators.required])
     });
-    // this.editForm.valueChanges.subscribe((value) => console.log(value));
-    // this.editForm.statusChanges.subscribe((value) => console.log(value));
+
     this.image.subscribe(img => {
       this.editForm.patchValue(img);
     });
   }
+
   saveChanges() {
     if (this.editForm.status !== 'VALID') {
       console.log('form is not valid, cannot save to database');
       return;
     }
+
     const data = this.editForm.value;
     this.imageService.updateImage(this.image, data);
-    // this.getImageData(this.image.$key);
   }
 
   returnToImgDetails() {

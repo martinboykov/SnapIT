@@ -49,9 +49,6 @@ export class ImageDetailComponent implements OnInit {
         this.imgAuthor = image.author;
         this.imgAuthorID = image.authorID;
         this.imgCategorie = image.categorie;
-        console.log(this.imageKey);
-        console.log(this.uid);
-        console.log(this.imgAuthorID);
 
         if (this.imgAuthorID === this.uid) {
           this.editAuthorOnly = true;
@@ -59,26 +56,25 @@ export class ImageDetailComponent implements OnInit {
       });
 
   }
+
   edit() {
     this.router.navigate(['edit'], { relativeTo: this.route });
-
   }
+
   delete() {
     this.imageService.deleteImage(this.imageKey);
     this.router.navigate(['/gallery']);
   }
+
   returnToGallery() {
     this.router.navigate(['/gallery']);
   }
+
   get userID(): string {
     return this.authService.currentUserId;
   }
+
   toProfile() {
-    // this.router.navigate(['/profile/', this.userID]);
     this.router.navigate([`/profile/${this.userID}`]);
-    console.log(this.userID);
-
   }
-
-
 }

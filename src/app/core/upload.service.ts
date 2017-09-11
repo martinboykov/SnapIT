@@ -1,4 +1,3 @@
-// import * as _ from 'lodash';
 import * as firebase from 'firebase';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -33,7 +32,6 @@ export class Upload {
             }
         );
 
-        console.log(file.url);
         return file.url;
     }
 

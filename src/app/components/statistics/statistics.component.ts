@@ -1,11 +1,12 @@
-import { AngularFireDatabase } from 'angularfire2/database';
-import { ImageService } from './../../core/image.service';
-import { UserService } from './../../core/user.service';
-import { Component, OnInit } from '@angular/core';
 import 'firebase/storage';
 
 import * as firebase from 'firebase';
 
+import { Component, OnInit } from '@angular/core';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { ImageService } from './../../core/image.service';
+import { UserService } from './../../core/user.service';
 
 @Component({
   selector: 'app-statistics',
@@ -72,6 +73,5 @@ export class StatisticsComponent implements OnInit {
           }
         });
       });
-
   }
 }

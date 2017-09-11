@@ -6,5 +6,4 @@ export class FileItem {
       public isUploading: boolean = false,
       public progress: number = 0) {
   }
-
 }

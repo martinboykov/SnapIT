@@ -18,16 +18,15 @@ export class AuthService implements IAuthService {
   constructor(private angularFireAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private router: Router) {
-
     this.angularFireAuth.authState.subscribe((auth) => {
       this.authState = auth; // this.User
     });
   }
-  // Returns true if user is logged in
+
   get authenticated(): boolean {
     return this.authState !== null;
   }
-  // Returns current user UID
+
   get currentUserId(): string {
     return this.authenticated ? this.authState.uid : '';
   }
@@ -42,12 +41,10 @@ export class AuthService implements IAuthService {
     return this.user;
   }
 
-
   signupUser(signupForm) {
     return this.angularFireAuth.auth.createUserWithEmailAndPassword(signupForm.value.email, signupForm.value.password)
       .then((newUser) => {
         this.authState = newUser;
-        // Endpoint on firebase
         const path = `users/${this.currentUserId}`;
         const data = {
           email: this.authState.email,

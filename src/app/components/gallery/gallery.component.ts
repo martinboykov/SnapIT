@@ -1,16 +1,16 @@
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/take';
+
+import * as _ from 'lodash';
+
 import { Component, OnInit } from '@angular/core';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Image } from '../../shared/models/image';
 import { ImageFilterPipe } from './../../shared/Pipes/filter-Images.pipe';
-import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 import { ImageService } from './../../core/image.service';
-// import { Observable } from 'rxjs/Observable';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import * as _ from 'lodash';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/take';
+import { ReversePipe } from './../../shared/Pipes/filter-last-images.pipe';
 
 @Component({
   selector: 'app-gallery',
@@ -19,8 +19,6 @@ import 'rxjs/add/operator/take';
 })
 
 export class GalleryComponent implements OnInit {
-
-  //   INFINITY SCROLL
   images = new BehaviorSubject([]);
   lastImage;
   lastImageKey;
@@ -37,18 +35,16 @@ export class GalleryComponent implements OnInit {
     this.lastImage.subscribe((list) => {
       this.lastImage = list[0];
       this.lastImageKey = this.lastImage.$key;
-      console.log(this.lastImageKey);
       this.lastKey = this.lastImageKey;
       this.getImages();
     });
 
   }
   onScroll() {
-    console.log('scrolled!!');
     this.getImages();
   }
-  private getImages() {
 
+  private getImages() {
     if (this.finished) {
       return;
     } else {
@@ -76,14 +72,3 @@ export class GalleryComponent implements OnInit {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-

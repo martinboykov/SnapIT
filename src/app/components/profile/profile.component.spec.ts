@@ -10,6 +10,7 @@ import { GalleryComponent } from './../gallery/gallery.component';
 import { HomeComponent } from './../home/home.component';
 import { ImageDetailComponent } from './../gallery/image-detail/image-detail.component';
 import { ImageEditComponent } from './../gallery/image-edit/image-edit.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfoComponent } from './../info/info.component';
 import { LoginComponent } from './../auth/login/login.component';
 import { ProfileComponent } from './profile.component';
@@ -42,7 +43,8 @@ describe('ProfileComponent', () => {
         ReactiveFormsModule,
         AppRoutingModule,
         CoreModule.forRoot(),
-        SharedModule
+        SharedModule,
+        InfiniteScrollModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' }

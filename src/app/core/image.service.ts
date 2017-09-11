@@ -26,11 +26,10 @@ export class ImageService {
     this.angularFireAuth.authState.subscribe(auth => {
       if (auth !== undefined && auth !== null) {
         this.uid = auth.uid;
-
       }
     });
   }
-  // INFINITI SCROLL
+
   getImagesInfinityScroll(batch, lastKey?) {
     const query = {
       orderByKey: true,
@@ -58,6 +57,7 @@ export class ImageService {
     return firebase.database().ref('gallery/' + key).once('value')
       .then((snap) => snap.val());
   }
+
   getImagesList(query = {}): FirebaseListObservable<Image[]> {
     this.images = this.db.list('/gallery', {
       query: query
@@ -68,10 +68,9 @@ export class ImageService {
   updateImage(image: FirebaseObjectObservable<Image>, data: any) {
     return image.update(data);
   }
+
   deleteImage(key: string): void {
     this.images.remove(key)
       .catch(error => console.log(error));
   }
-
 }
-

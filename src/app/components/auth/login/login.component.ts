@@ -6,7 +6,6 @@ import { IAuthService } from '../../../core/contracts/auth-servise-interface';
 import { Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,13 +27,9 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
-
   login() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-
-    // console.log(email);
-    // console.log(password);
 
     this.authService.loginUser(email, password)
       .then(resolve => {
@@ -69,6 +64,4 @@ export class LoginComponent implements OnInit {
     this.toggleReset = false;
     this.passReset = false;
   }
-
-
 }

@@ -12,6 +12,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 import { HomeComponent } from '../../home/home.component';
 import { ImageDetailComponent } from './image-detail.component';
 import { ImageEditComponent } from '../../gallery/image-edit/image-edit.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfoComponent } from '../../info/info.component';
 import { LoginComponent } from '../../auth/login//login.component';
 import { ProfileComponent } from '../../profile/profile.component';
@@ -44,7 +45,8 @@ describe('ImagesComponent', () => {
         ReactiveFormsModule,
         AppRoutingModule,
         CoreModule.forRoot(),
-        SharedModule
+        SharedModule,
+        InfiniteScrollModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' }

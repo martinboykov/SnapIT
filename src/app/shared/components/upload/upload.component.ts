@@ -43,21 +43,18 @@ export class UploadComponent implements OnInit {
     console.log(this.uploadedFiles);
   }
   ngOnInit() {
-    // Called after the constructor, initializing input properties,
-    // and the first call to ngOnChanges. Add 'implements OnInit' to the class.
     this.uid = this.authService.currentUserId;
     this.user = this.authService.getUser(this.uid);
     this.user.subscribe((userData) => {
       this.author = userData.name;
-      console.log(userData);
     });
+
     this.images = this.imageService.getImagesList();
     this.images.subscribe((imageList) => {
       this.image = imageList[imageList.length - 1];
-      // console.log(this.image);
     });
-    this.buildForm();
 
+    this.buildForm();
   }
 
   handleFiles(event) {
@@ -74,6 +71,7 @@ export class UploadComponent implements OnInit {
       this.uploadServise.uploadImagesToFirebase(this.currentFile);
       this.uploadedFiles.push(this.currentFile);
     });
+
     this.fileUploadedToDB = true;
     this.imageSavedToDB = false;
   }
@@ -89,7 +87,6 @@ export class UploadComponent implements OnInit {
     this.imageService.saveImage(image);
     this.imageSavedToDB = false;
     this.fileUploadedToDB = false;
-    // console.log(this.image.$key);
     this.router.navigate([`/image/${this.image.$key}`]);
   }
 
@@ -106,7 +103,7 @@ export class UploadComponent implements OnInit {
       'description': new FormControl('', [Validators.required]),
       'categorie': new FormControl('Other', [Validators.required])
     });
-    this.uploadForm.valueChanges.subscribe((value) => console.log(value));
-    this.uploadForm.statusChanges.subscribe((value) => console.log(value));
+    this.uploadForm.valueChanges.subscribe((value) => console.log('value'));
+    this.uploadForm.statusChanges.subscribe((value) => console.log('value'));
   }
 }

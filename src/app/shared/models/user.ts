@@ -6,8 +6,7 @@ export class UserData {
     public username: string;
     public uploads: Array<Image>;
     public favourites: Array<Image>;
-    // public uploads: Array<PictureData>;
-    // public favourites: Array<PictureData>;
+
     public uid: string;
     constructor(
         public userID: string = '',
