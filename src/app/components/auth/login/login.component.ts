@@ -3,7 +3,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 import { EMAIL_REGEX } from './../../../shared/constants';
 import { IAuthService } from '../../../core/contracts/auth-servise-interface';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({
@@ -21,10 +21,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
     @Inject('IAuthService') private authService: IAuthService,
-    private toasterService: ToasterService) { }
+    private toasterService: ToasterService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.buildForm();
+
   }
 
   login() {
@@ -33,10 +35,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(email, password)
       .then(resolve => {
-        this.router.navigate(['/home']);
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.toasterService.pop('success', 'Welcome!');
-      }
-      )
+        this.router.navigate([returnUrl || '/home']);
+      })
       .catch(error => this.errorMsg = error.message);
   }
 
@@ -45,8 +47,8 @@ export class LoginComponent implements OnInit {
       'email': new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]),
       'password': new FormControl('', [Validators.required])
     });
-    this.loginForm.valueChanges.subscribe((value) => console.log(value));
-    this.loginForm.statusChanges.subscribe((value) => console.log(value));
+    this.loginForm.valueChanges.subscribe(() => { });
+    this.loginForm.statusChanges.subscribe(() => { });
   }
 
   toggleResetPassword() {

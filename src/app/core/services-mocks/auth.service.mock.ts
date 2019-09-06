@@ -1,39 +1,43 @@
+import { Observable } from 'rxjs/Observable';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { IAuthService } from '../contracts/auth-servise-interface';
 import { UserData } from './../../shared/models/user';
 
 export class MockAuthService implements IAuthService {
 
-    private _authenticated: boolean;
+  private _authenticated: boolean;
 
-    get authenticated() {
-        return this._authenticated;
-    }
+  get authenticated() {
+    return this._authenticated;
+  }
 
-    set authenticated(value: boolean) {
-        this._authenticated = value;
-    }
+  set authenticated(value: boolean) {
+    this._authenticated = value;
+  }
 
-    authState: any;
+  authState: any;
 
-    currentUserId: string;
+  currentUserId: string;
 
-    isAuthenticated() {
-    }
+  isAuthenticated() {
+  }
 
-    signupUser(signupForm: any) {
-    }
+  signupUser(signupForm: any) {
+  }
 
-    loginUser(email: string, password: string) {
-    }
+  loginUser(email: string, password: string) {
+  }
 
-    signOut(): void {
-    }
+  signOut(): void {
+  }
 
-    resetPassword(email: string) {
-    }
+  resetPassword(email: string) {
+  }
 
-    getUser(key: string): FirebaseObjectObservable<UserData> {
-        return new FirebaseObjectObservable<UserData>();
-    }
+  getUser(key: string): FirebaseObjectObservable<UserData> {
+    return new FirebaseObjectObservable<UserData>();
+  }
+  getAuthStatusListener(): Observable<boolean> {
+    return new Observable<boolean>();
+  }
 }

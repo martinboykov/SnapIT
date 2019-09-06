@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import * as firebase from 'firebase';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
@@ -13,6 +14,7 @@ import { UserData } from './../shared/models/user';
 export class AuthService implements IAuthService {
   authState: any = null;
   user: any;
+  private authStatusListener = new BehaviorSubject<boolean>(false);
   private basePath = '/users';
 
   constructor(private angularFireAuth: AngularFireAuth,
@@ -33,11 +35,17 @@ export class AuthService implements IAuthService {
   get currentUser(): any {
     return this.authenticated ? this.authState : null;
   }
+  private clearAuthData() {
+    localStorage.removeItem('firebase:authUser:AIzaSyC6xFvq9fDz2dBu9q4tIJ9QJiLLyKbTU5g:[DEFAULT]');
+  }
+
+  getAuthStatusListener() {
+    return this.authStatusListener.asObservable();
+  }
 
   getUser(key: string): FirebaseObjectObservable<UserData> {
-    const usersPath =  `${this.basePath}/${key}`;
+    const usersPath = `${this.basePath}/${key}`;
     this.user = this.db.object(usersPath);
-
     return this.user;
   }
 
@@ -50,25 +58,42 @@ export class AuthService implements IAuthService {
           email: this.authState.email,
           name: signupForm.value.username
         };
-
+        this.authStatusListener.next(true);
         this.db.object(path).update(data)
-          .catch(error => console.log(error));
+          .then((res) => {
+            // console.log(res);
+
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
       })
       .catch(error => console.log(error));
   }
 
   loginUser(email: string, password: string) {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((data) => {
+        // console.log(data);
+
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
   }
 
   signOut(): void {
     this.angularFireAuth.auth.signOut();
-    this.router.navigate(['/home']);
+    this.clearAuthData();
+    this.router.navigate(['/login']);
   }
 
   resetPassword(email: string) {
     const fbAuth = firebase.auth();
     return fbAuth.sendPasswordResetEmail(email)
-      .then(() => console.log('email sent'));
+      .then(() => {
+        // console.log('email sent')
+      });
   }
 }

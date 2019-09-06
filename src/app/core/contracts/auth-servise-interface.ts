@@ -1,20 +1,24 @@
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { UserData } from '../../shared/models/user';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 export interface IAuthService {
-    authState: any;
+  authState: any;
 
-    authenticated: boolean;
+  authenticated: boolean;
 
-    currentUserId: string;
+  currentUserId: string;
 
-    signupUser(signupForm): any;
+  signupUser(signupForm): any;
 
-    loginUser(email: string, password: string): any;
+  loginUser(email: string, password: string): any;
 
-    signOut(): void;
+  signOut(): void;
 
-    resetPassword(email: string): any;
+  resetPassword(email: string): any;
 
-    getUser(key: string): FirebaseObjectObservable<UserData> ;
+  getUser(key: string): FirebaseObjectObservable<UserData>;
+
+  getAuthStatusListener(): Observable<boolean>;
 }

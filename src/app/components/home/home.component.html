@@ -1,28 +1,28 @@
 <!-- Carousel -->
 <div id="carousel-example-generic"
-  class="carousel slide"
-  data-ride="carousel">
+     class="carousel slide"
+     data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic"
-      data-slide-to="0"
-      class="active"></li>
+        data-slide-to="0"
+        class="active"></li>
     <li data-target="#carousel-example-generic"
-      data-slide-to="1"></li>
+        data-slide-to="1"></li>
     <li data-target="#carousel-example-generic"
-      data-slide-to="2"></li>
+        data-slide-to="2"></li>
   </ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
       <img src="{{imagesCarouselOneUrl}}"
-
-        alt="First slide">
+           alt="First slide">
       <!-- Static Header -->
       <div class="header-text hidden-xs">
         <div class="col-md-12 text-center">
           <h2>
-            <span id="welcome-message" class="lg-below md-below">Welcome to SnapIT</span>
+            <span id="welcome-message"
+                  class="lg-below md-below">Welcome to SnapIT</span>
           </h2>
           <br>
           <h3>
@@ -31,12 +31,12 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              [routerLink]="['/login']"
-              *ngIf="!isUserLoggedIn">Login</a>
+               [routerLink]="['/login']"
+               *ngIf="!isUserLoggedIn">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              href="#"
-              *ngIf="!isUserLoggedIn"
-              [routerLink]="['/register']">Register</a>
+               href="#"
+               *ngIf="!isUserLoggedIn"
+               [routerLink]="['/register']">Register</a>
           </div>
         </div>
       </div>
@@ -57,20 +57,20 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!isUserLoggedIn"
-              [routerLink]="['/login']">Login</a>
+               *ngIf="!isUserLoggedIn"
+               [routerLink]="['/login']">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!isUserLoggedIn"
-              [routerLink]="['/register']">>Register</a>
+               *ngIf="!isUserLoggedIn"
+               [routerLink]="['/register']">Register</a>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="item">
+    <div class="item"
+    >
       <img src="{{imagesCarouselThreeUrl}}"
-
-        alt="Third slide">
+           alt="Third slide">
 
       <div class="header-text hidden-xs">
         <div class="col-md-12 text-center">
@@ -84,11 +84,11 @@
           <br>
           <div class="lg-below md-below">
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!isUserLoggedIn"
-              [routerLink]="['/login']">Login</a>
+               *ngIf="!isUserLoggedIn"
+               [routerLink]="['/login']">Login</a>
             <a class="btn btn-theme btn-sm btn-min-block"
-              *ngIf="!isUserLoggedIn"
-              [routerLink]="['/register']">Register</a>
+               *ngIf="!isUserLoggedIn"
+               [routerLink]="['/register']">Register</a>
           </div>
         </div>
       </div>
@@ -97,28 +97,31 @@
   </div>
   <!-- Controls -->
   <a class="left carousel-control"
-    href="#carousel-example-generic"
-    data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
+     href="#carousel-example-generic"
+     data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
   <a class="right carousel-control"
-    href="#carousel-example-generic"
-    data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
+     href="#carousel-example-generic"
+     data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
 <!-- /carousel -->
 <div class="container">
-  <h2 id="center">Latest Photos</h2>
+  <h2 id="center"
+  *ngIf="loaded">Latest Photos</h2>
   <hr>
-  <div class="gal">
+  <div class="gal"
+  *ngIf="loaded">
 
     <ul *ngIf="images">
-      <li *ngFor="let image of (images | async | reverse)"
-        class="img">
+      <li *ngFor="let image of images"
+          class="img">
         <a [routerLink]="['/image', image.$key]">
-          <img src="{{image.url}}" class="tn">
-          </a>
+          <img src="{{image.url}}"
+               class="tn">
+        </a>
       </li>
     </ul>
   </div>

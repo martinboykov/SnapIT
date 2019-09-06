@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   toProfile() {
     // this.router.navigate(['/profile/', this.userID]);
     this.router.navigate([`/profile/${this.userID}`]);
-    console.log(this.userID);
+    // console.log(this.userID);
 
   }
 

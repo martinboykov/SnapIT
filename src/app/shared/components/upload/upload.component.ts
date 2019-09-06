@@ -40,7 +40,6 @@ export class UploadComponent implements OnInit {
     private router: Router) {
     this.selectStatus = DEFAULT_SELECT_STATUS;
     this.uploadedFiles = new Array<FileItem>();
-    console.log(this.uploadedFiles);
   }
   ngOnInit() {
     this.uid = this.authService.currentUserId;
@@ -104,7 +103,7 @@ export class UploadComponent implements OnInit {
       'description': new FormControl('', [Validators.required]),
       'categorie': new FormControl('Other', [Validators.required])
     });
-    this.uploadForm.valueChanges.subscribe((value) => console.log('value'));
-    this.uploadForm.statusChanges.subscribe((value) => console.log('value'));
+    // this.uploadForm.valueChanges.subscribe((value) => console.log('value'));
+    // this.uploadForm.statusChanges.subscribe((value) => console.log('value'));
   }
 }

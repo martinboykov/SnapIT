@@ -1,63 +1,84 @@
-.container{
-    margin-bottom: 80px;
+.container {
+  margin-bottom: 80px;
 }
 
-ul { padding:0; max-width:500px; margin: auto}
+ul {
+  padding: 0;
+  max-width: 500px;
+  margin: auto
+}
+
 /* li { display:inline;} */
 
 li {
   display: inline;
 }
-.tn {
-  margin:3px 3px;
-  border: 1px solid #eee;
-  box-shadow:#555 1px 1px 8px 1px;
-  cursor: pointer;
 
+.tn {
+  margin: 3px 3px;
+  border: 1px solid #eee;
+  box-shadow: #555 1px 1px 8px 1px;
+  cursor: pointer;
 }
 
-h2{
+h2 {
   margin-bottom: 20px;
 }
 
-
 .gal {
-    -webkit-column-count: 3;
-    /* Chrome, Safari, Opera */
-    -moz-column-count: 3;
-    /* Firefox */
-    column-count: 3;
+  -webkit-column-count: 3;
+  /* Chrome, Safari, Opera */
+  -moz-column-count: 3;
+  /* Firefox */
+  column-count: 3;
 }
 
 /* .gal > ul>li>a img {
     width: 100%;
     padding: 7px;
 } */
-.gal >div img {
-    width: 100%;
-    padding: 7px;
+
+.gal>div img {
+  width: 100%;
+  padding: 7px;
 }
-.end-of-db{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border: 1px solid #eee;
-    border-radius: 25px;
-    background-color:#31B0D5;
-    box-shadow:#555 1px 1px 8px 1px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    font-size: 20px;
+
+.end-of-db {
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid #eee;
+  border-radius: 25px;
+  background-color: #31B0D5;
+  box-shadow: #555 1px 1px 8px 1px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+
+
+
+}
+.end-of-db.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0s linear;
+}
+
+.end-of-db.active {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 1s, opacity 1.5s linear;
 }
 
 @media (max-width: 500px) {
-    .gal {
-        -webkit-column-count: 1;
-        /* Chrome, Safari, Opera */
-        -moz-column-count: 1;
-        /* Firefox */
-        column-count: 1;
-    }
+  .gal {
+    -webkit-column-count: 1;
+    /* Chrome, Safari, Opera */
+    -moz-column-count: 1;
+    /* Firefox */
+    column-count: 1;
+  }
 }

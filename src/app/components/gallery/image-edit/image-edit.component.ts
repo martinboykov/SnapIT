@@ -59,7 +59,7 @@ export class ImageEditComponent implements OnInit {
 
   saveChanges() {
     if (this.editForm.status !== 'VALID') {
-      console.log('form is not valid, cannot save to database');
+      // console.log('form is not valid, cannot save to database');
       return;
     }
 

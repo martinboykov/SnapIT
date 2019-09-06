@@ -1,61 +1,56 @@
 <div class="container">
-  <h2 *ngIf="filterBy==='all'">All Photos</h2>
-  <h2 *ngIf="filterBy!=='all'">Photos with {{filterBy}}</h2>
+  <h2 *ngIf="category==='all'">All Photos</h2>
+  <h2 *ngIf="category!=='all'">Photos with {{category}}</h2>
   <hr>
   <div class="row">
     <div class="container-fluid col-lg">
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='all'"
-        (click)="filterBy='all'">All</button>
+              [class.active]="category==='all'"
+              [disabled]="!loaded"
+              (click)="changeCategory('all')">All</button>
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='Landscape'"
-        (click)="filterBy='Landscape'">Landscape</button>
+              [class.active]="category==='Landscape'"
+              [disabled]="!loaded"
+              (click)="changeCategory('Landscape')">Landscape</button>
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='Portrait'"
-        (click)="filterBy='Portrait'">Portrait</button>
+              [class.active]="category==='Portrait'"
+              [disabled]="!loaded"
+              (click)="changeCategory('Portrait')">Portrait</button>
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='Animals
-        '"
-        (click)="filterBy='Animals'">Animals</button>
+              [class.active]="category==='Animals'"
+              [disabled]="!loaded"
+              (click)="changeCategory('Animals')">Animals</button>
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='Architecture
-        '"
-        (click)="filterBy='Architecture'">Architecture</button>
+              [class.active]="category==='Architecture'"
+              [disabled]="!loaded"
+              (click)="changeCategory('Architecture')">Architecture</button>
       <button class="btn btn-lg btn-info"
-        [class.active]="filterBy==='Other
-        '"
-        (click)="filterBy='Other'">Other</button>
+              [class.active]="category==='Other'"
+              [disabled]="!loaded"
+              (click)="changeCategory('Other')">Other</button>
     </div>
     <hr>
 
-   <div class="gal"  >
-      <div *ngFor="let image of images | async |  imageFilter:filterBy  ">
-          <a [routerLink]="['/image', image.$key]">
-            <img [src]="image?.url" class="tn">
-            </a>
+    <div class="gal">
+      <div *ngFor="let image of imagesScroller">
+        <a [routerLink]="['/image', image.$key]">
+          <img [src]="image?.url"
+               class="tn">
+        </a>
       </div>
       <div infiniteScroll
-        [infiniteScrollDistance]="3"
-        [infiniteScrollThrottle]="2000"
-        (scrolled)="onScroll()">
+           [infiniteScrollDistance]="scrollDistance"
+           [infiniteScrollThrottle]="throttle"
+           (scrolled)="onScroll()">
       </div>
       <div *ngIf="!finished">
 
       </div>
 
     </div>
-    <div *ngIf="finished" class="col-cs-12 list-group-item end-of-db">
+    <div [ngClass]="{'active': finished, 'inactive': !finished}"
+         class="col-cs-12 list-group-item end-of-db">
       There are no more pictures...!
     </div>
-    <!-- <div class="gal">
-    <ul >
-      <li *ngFor="let image of (images | async | reverse |  imageFilter:filterBy )"
-        class="img">
-        <a [routerLink]="['/image', image.$key]">
-            <img src="{{image.url}}" class="tn">
-            </a>
-      </li>
-    </ul>
-  </div> -->
   </div>
 </div>
