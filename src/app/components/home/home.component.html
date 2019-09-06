@@ -16,7 +16,8 @@
   <div class="carousel-inner">
     <div class="item active">
       <img src="{{imagesCarouselOneUrl}}"
-           alt="First slide">
+           alt="First slide"
+           *ngIf="loadedCarousel">
       <!-- Static Header -->
       <div class="header-text hidden-xs">
         <div class="col-md-12 text-center">
@@ -43,7 +44,8 @@
       <!-- /header-text -->
     </div>
     <div class="item">
-      <img src="{{imagesCarouselTwoUrl}}">
+      <img src="{{imagesCarouselTwoUrl}}"
+           *ngIf="loadedCarousel">
       <!-- Static Header -->
       <div class="header-text hidden-xs">
         <div class="col-md-12 text-center">
@@ -67,10 +69,10 @@
       </div>
 
     </div>
-    <div class="item"
-    >
+    <div class="item">
       <img src="{{imagesCarouselThreeUrl}}"
-           alt="Third slide">
+           alt="Third slide"
+           *ngIf="loadedCarousel">
 
       <div class="header-text hidden-xs">
         <div class="col-md-12 text-center">
@@ -108,12 +110,11 @@
   </a>
 </div>
 <!-- /carousel -->
-<div class="container">
-  <h2 id="center"
-  *ngIf="loaded">Latest Photos</h2>
+<div class="container"
+     *ngIf="loaded">
+  <h2 id="center">Latest Photos</h2>
   <hr>
-  <div class="gal"
-  *ngIf="loaded">
+  <div class="gal">
 
     <ul *ngIf="images">
       <li *ngFor="let image of images"

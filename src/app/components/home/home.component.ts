@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   imagesCarouselThree;
   imagesCarouselThreeUrl;
   loaded = false;
+  loadedCarousel = false;
 
   constructor(@Inject('IAuthService') private authService: IAuthService, private imageService: ImageService) { }
 
@@ -38,6 +39,8 @@ export class HomeComponent implements OnInit {
 
         this.imagesCarouselThree = list[2];
         this.imagesCarouselThreeUrl = this.imagesCarouselThree.url;
+        this.loadedCarousel = true;
+
         return this.imageService.getImagesList(({ limitToLast: 20 }));
       })
       .subscribe((list: Image[]) => {
