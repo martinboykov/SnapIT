@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get isUserLoggedIn(): boolean {
-    return this.authService.authenticated;
+    return this.authService.authenticatedLS;
   }
   get userID(): string {
     return this.authService.currentUserId;

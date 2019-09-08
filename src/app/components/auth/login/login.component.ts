@@ -34,12 +34,14 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.value.password;
 
     this.authService.loginUser(email, password)
-      .then(resolve => {
+      .then((resolve) => {
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.toasterService.pop('success', 'Welcome!');
         this.router.navigate([returnUrl || '/home']);
       })
-      .catch(error => this.errorMsg = error.message);
+      .catch((error) => {
+        this.toasterService.pop('error', 'Failed to login', 'Wrong Password or Email');
+      });
   }
 
   buildForm(): void {

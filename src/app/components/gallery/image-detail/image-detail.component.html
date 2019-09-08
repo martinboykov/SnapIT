@@ -5,7 +5,7 @@
         <!-- <img class="img-responsive"
           src="{{(image | async).url}}" /> -->
         <img class="img-responsive"
-          src="{{imgUrl}}" />
+             src="{{imgUrl}}" />
       </div>
       <div class="row">
         <div class="col-cs-12 list-group-item">
@@ -24,27 +24,30 @@
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="edit()"
-              [disabled]="!editAuthorOnly"
-              class="btn btn-primary">Edit</button>
+                    *ngIf="isUserLoggedIn"
+                    [disabled]="!editAuthorOnly"
+                    class="btn btn-primary">Edit</button>
           </div>
         </div>
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="returnToGallery()"
-              class="btn btn-primary">Back to Gallery</button>
+                    class="btn btn-primary">Go to Gallery</button>
           </div>
         </div>
         <div class="col-cs-12">
           <div class="col-cs-12">
             <button (click)="toProfile()"
-              class="btn btn-primary">Back to Profile</button>
+                    *ngIf="isUserLoggedIn"
+                    class="btn btn-primary">Go to Profile</button>
           </div>
         </div>
         <div class="col-cs-12">
           <div class="col-cs-12 delete">
             <button (click)="delete()"
-              [disabled]="!editAuthorOnly"
-              class="btn btn-danger">Delete</button>
+                    *ngIf="isUserLoggedIn"
+                    [disabled]="!editAuthorOnly"
+                    class="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

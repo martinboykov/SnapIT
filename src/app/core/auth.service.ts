@@ -10,6 +10,8 @@ import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { UserData } from './../shared/models/user';
 
+const FIREBASE_AUTH_TOKEN = 'firebase:authUser:AIzaSyC6xFvq9fDz2dBu9q4tIJ9QJiLLyKbTU5g:[DEFAULT]';
+
 @Injectable()
 export class AuthService implements IAuthService {
   authState: any = null;
@@ -21,12 +23,18 @@ export class AuthService implements IAuthService {
     private db: AngularFireDatabase,
     private router: Router) {
     this.angularFireAuth.authState.subscribe((auth) => {
+      // console.log(auth);
+
       this.authState = auth; // this.User
     });
   }
 
   get authenticated(): boolean {
     return this.authState !== null;
+  }
+
+  get authenticatedLS(): boolean {
+    return this.getAuthData();
   }
 
   get currentUserId(): string {
@@ -36,9 +44,23 @@ export class AuthService implements IAuthService {
     return this.authenticated ? this.authState : null;
   }
   private clearAuthData() {
-    localStorage.removeItem('firebase:authUser:AIzaSyC6xFvq9fDz2dBu9q4tIJ9QJiLLyKbTU5g:[DEFAULT]');
+    localStorage.removeItem(FIREBASE_AUTH_TOKEN);
   }
 
+  private getAuthData() {
+    let authData = JSON.parse(localStorage.getItem(FIREBASE_AUTH_TOKEN));
+    if (!authData) return false;
+    // console.log(authData.stsTokenManager);
+    authData = authData.stsTokenManager;
+    let expirationDate = authData.expirationTime;
+    expirationDate = new Date(expirationDate);
+    const now = new Date();
+    const expiresIn = expirationDate.getTime() - now.getTime();
+    if (expiresIn > 0) {
+      return true;
+    }
+    return false;
+  }
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
   }
@@ -73,14 +95,14 @@ export class AuthService implements IAuthService {
   }
 
   loginUser(email: string, password: string) {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((data) => {
-        // console.log(data);
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+    // .then((response) => {
+    //   console.log('response', response);
 
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
+    // })
+    // .catch((err) => {
+    //   console.log('err', err);
+    // });
   }
 
   signOut(): void {

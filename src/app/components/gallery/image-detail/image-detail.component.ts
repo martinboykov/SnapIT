@@ -39,6 +39,11 @@ export class ImageDetailComponent implements OnInit {
       this.image = this.db.object('/gallery/' + params['id']);
     });
   }
+
+  get isUserLoggedIn(): boolean {
+    return this.authService.authenticated;
+  }
+
   getImageData(key: string) {
     this.imageService.getImage(key)
       .then(image => {

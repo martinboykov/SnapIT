@@ -8,6 +8,8 @@ export interface IAuthService {
 
   authenticated: boolean;
 
+  authenticatedLS: boolean;
+
   currentUserId: string;
 
   signupUser(signupForm): any;
