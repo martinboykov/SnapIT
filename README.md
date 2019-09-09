@@ -30,7 +30,6 @@ It offers functionalities such as: upload of images, personal profile page, edit
      - [_Firebase Hosting_](#firebase-hosting)
  - [**Testing**](#testing)
  - [**Build Process**](#build-process)
-   - [API-keys](#api-keys)
  - [**Team**](#team)
 
 <a href="#features"></a>
