@@ -1,6 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { AboutComponent } from './components/static/about/about.component';
+// import { AboutComponent } from './components/static/about/about.component';
+// import { StatisticsComponent } from './components/statistics/statistics.component';
+
 import { AuthGuard } from './core/auth-guard.service';
 import { ContactsComponent } from './components/static/contacts/contacts.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
@@ -12,14 +14,13 @@ import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UploadComponent } from './shared/components/upload/upload.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'about', component: AboutComponent },
+  // { path: '', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  // { path: 'statistics', component: StatisticsComponent },
+  // { path: 'about', component: AboutComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'image/:id', component: ImageDetailComponent },

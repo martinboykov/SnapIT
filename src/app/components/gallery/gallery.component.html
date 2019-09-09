@@ -3,7 +3,7 @@
   <h2 *ngIf="category!=='all'">Photos with {{category}}</h2>
   <hr>
   <div class="row">
-    <div class="container-fluid col-lg">
+    <div class="container-fluid col-lg buttons">
       <button class="btn btn-lg btn-info"
               [class.active]="category==='all'"
               [disabled]="!loaded"
@@ -30,27 +30,30 @@
               (click)="changeCategory('Other')">Other</button>
     </div>
     <hr>
+    <div class="container gallery">
 
-    <div class="gal">
-      <div *ngFor="let image of imagesScroller">
-        <a [routerLink]="['/image', image.$key]">
-          <img [src]="image?.url"
-               class="tn">
-        </a>
-      </div>
-      <div infiniteScroll
-           [infiniteScrollDistance]="scrollDistance"
-           [infiniteScrollThrottle]="throttle"
-           (scrolled)="onScroll()">
-      </div>
-      <div *ngIf="!finished">
+
+      <div class="gal">
+        <div *ngFor="let image of imagesScroller">
+          <a [routerLink]="['/image', image.$key]">
+            <img [src]="image?.url"
+                 class="tn">
+          </a>
+        </div>
+        <div infiniteScroll
+             [infiniteScrollDistance]="scrollDistance"
+             [infiniteScrollThrottle]="throttle"
+             (scrolled)="onScroll()">
+        </div>
+        <div *ngIf="!finished">
+
+        </div>
 
       </div>
-
-    </div>
-    <div [ngClass]="{'active': finished, 'inactive': !finished}"
-         class="col-cs-12 list-group-item end-of-db">
-      There are no more pictures...!
+      <div [ngClass]="{'active': finished, 'inactive': !finished}"
+           class="col-cs-12 list-group-item end-of-db">
+        There are no more pictures...!
+      </div>
     </div>
   </div>
 </div>
