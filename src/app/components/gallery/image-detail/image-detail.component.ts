@@ -57,10 +57,7 @@ export class ImageDetailComponent implements OnInit {
 
         if (this.imgAuthorID === this.uid) {
           this.editAuthorOnly = true;
-
         }
-        console.log(this.editAuthorOnly);
-
       });
 
   }
