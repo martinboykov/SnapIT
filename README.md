@@ -1,9 +1,8 @@
 # **SnapIT**
-SnapIT is a Single Page Application (SPA), with a front-end build with Angular, that can surve as a photographer's platform, for sharing pictures. Tha application is build with edjucational purposes by team of 3 as part of project assignment for the Course for Single-page Applications with Angular at Telerik Academy 2016-2017.
+SnapIT is a Single Page Application (SPA), with a front-end build with Angular, that can serve as a photographer's platform, for sharing pictures. The application is build with educational purposes by team of 3 as part of project assignment for the Course for Single-page Applications with Angular at Telerik Academy 2016-2017.
 It offers functionalities such as: upload of images, personal profile page, edit of the existing images and statistics of the users and images, divided by categories.
 
 #### Demo: <a href="https://snapit-768ca.firebaseapp.com" target="_blank">https://snapit-768ca.firebaseapp.com</a>
-
 
 <!-- #### Video Preview - Desktop: <a href="https://www.youtube.com/watch?v=0zFTRU7UpSM" target="_blank">https://www.youtube.com/watch?v=0zFTRU7UpSM</a>
 
@@ -12,7 +11,6 @@ It offers functionalities such as: upload of images, personal profile page, edit
 #### Video Preview - Mobile: <a href="https://www.youtube.com/watch?v=l40k-GeFjl8" target="_blank">https://www.youtube.com/watch?v=l40k-GeFjl8</a>
 
 [![https://www.youtube.com/watch?v=333t9ANeLNQ](https://media.giphy.com/media/QVmoPvkXIXMFzromvD/giphy.gif)](https://www.youtube.com/watch?v=333t9ANeLNQ) -->
-
 
 ## **Table of contents**
  - [**Features**](#features)
@@ -35,7 +33,6 @@ It offers functionalities such as: upload of images, personal profile page, edit
    - [API-keys](#api-keys)
  - [**Team**](#team)
 
-
 <a href="#features"></a>
 
 ## **Features**
@@ -48,7 +45,6 @@ All the functionalities of the application are accessible on both mobile and des
 There are 3 pages available to access for unauthenticated users: Home, Filter, Login/Register. For authenticated users there is also Upload page available and Personal Profile page.
 On mobile version there is a hamburger menu available in the top right corner from which you can access the navigation.
 
-
 <a href="#infinity-scroll"></a>
 
 ### _Infinity-scroll_
@@ -59,14 +55,14 @@ The list of images in Filter page is controlled by Infinity scroll (12 images pe
 <a href="#image-details-page"></a>
 
 ### _Image-Details-Page_
-For every image there is detail page available, where can be found its full content and ability to update and delete it for authencticated and authorized users.
+For every image there is detail page available, where can be found its full content and ability to update and delete it for authenticated and authorized users.
 
 <!-- <img src="https://media.giphy.com/media/J5GneIukbmsiPha59P/giphy.gif" alt="image-Details-Page preview" title="image-Details-Page"/> -->
 
 <a href="#image-edit-page"></a>
 
 ### _Image-Edit-Page_
-Users with required authentication and authorization privaleges can perform update and delete operations on the selected image.
+Users with required authentication and authorization privileges can perform update and delete operations on the selected image.
 
 <!-- <img src="https://media.giphy.com/media/llstrWBxbHprxlJg4O/giphy.gif" alt="image-Edit-Page preview" title="image-Edit-Page"/> -->
 
@@ -98,7 +94,7 @@ After successful authentication the user will be able to upload new images and e
 ## **Architecture and Technologies**
 <!-- <img src="./assets/images/architecture/Architecture_v1.png?raw=true" alt="Application Architecture" title="Application Architecture" width=880/> -->
 
-The Front-End is build with Angular. For the backhend is used Firebase with the following services: Realtime Database, Auth, Storage. The application is deployed on Firebase Hosting.
+The Front-End is build with Angular. For the Back-End is used Firebase with the following services: Real-time Database, Auth, Storage. The application is deployed on Firebase Hosting.
 
 <a href="#angular"></a>
 
@@ -112,7 +108,7 @@ The Application is following the Style Guide and the Folders-by-feature structur
 <a href="#firebase-realtime-database"></a>
 
 #### Firebase Realtime Database
-Firebase provides a realtime database and backend as a service. The service provides application developers an API that allows application data to be synchronized across clients and stored on Firebase's cloud.
+Firebase provides a real-time database and backend as a service. The service provides application developers an API that allows application data to be synchronized across clients and stored on Firebase's cloud.
 
 <a href="#firebase-storage"></a>
 
@@ -127,13 +123,12 @@ Firebase Auth is a service that can authenticate users using only client-side co
 <a href="#firebase-hosting"></a>
 
 #### Firebase Hosting
-Firebase Hosting is a static and dynamic web hosting. It supports hosting static files such as CSS, HTML, JavaScript and other files. The service delivers files over a content delivery network (CDN) through HTTP Secure (HTTPS) and Secure Sockets Layer encryption (SSL). Firebase partners with Fastly, a CDN, to provide the CDN backing Firebase Hosting.
+Firebase Hosting is a static and dynamic web hosting. It supports hosting static files such as CSS, HTML, JavaScript and other files. The service delivers files over a content delivery network (CDN) through HTTP Secure (HTTPS) and Secure Sockets Layer encryption (SSL).
 
 <a href="#testing"></a>
 
 ## **Testing**
 The stable state of the application is provided through unit tests.
-
 
 <a href="#build-processt"></a>
 
@@ -146,7 +141,6 @@ In the current app the connection is made in the CoreModule.
 * Development: start angular dev-server with `ng serve`
 * Production: compile the Angular app with output directory - dist with `ng build --prod`
 
-
 ## _**Team**_
 Name: Martin Martinov <br/>
 Email: m.boykov.martinov@gmail.com <br/>
@@ -157,3 +151,5 @@ Github: https://github.com/ludzhev
 
 Name: Mihaela Ivanova <br/>
 Github: https://github.com/mihaelaivanovaivanova
+
+
