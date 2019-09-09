@@ -138,7 +138,10 @@ The stable state of the application is provided through unit tests.
 In the current app the connection is made in the CoreModule.
 3. Run the application:
 * Development: start angular dev-server with `ng serve`
-* Production: compile the Angular app with output directory - dist with `ng build --prod`
+* Production:
+    - compile the Angular app with output directory - dist with `ng build --prod`
+    - login to your firebase account
+    - deploy on firebase: `firebase deploy`
 
 ## _**Team**_
 Name: Martin Martinov <br/>
