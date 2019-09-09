@@ -37,10 +37,8 @@ export class ImageEditComponent implements OnInit {
   ngOnInit() {
     this.uid = this.authService.currentUserId;
     this.getImageData(this.route.snapshot.params['id']);
-    if (this.uid !== this.imgAuthorID ) {
-      this.toasterService.pop('error', 'Unauthorized attempt', 'You are not authorized to access this page');
-      this.router.navigate(['/login']);
-    }
+
+
     this.route.params.subscribe(params => {
       this.image = this.db.object('/gallery/' + params['id']);
     });
@@ -56,6 +54,11 @@ export class ImageEditComponent implements OnInit {
         this.imgAuthor = image.author;
         this.imgAuthorID = image.authorID;
         this.imgCategorie = image.categorie;
+
+        if (this.uid !== this.imgAuthorID ) {
+          this.toasterService.pop('error', 'Unauthorized attempt', 'You are not authorized to access this page');
+          this.router.navigate(['/login']);
+        }
       });
   }
 

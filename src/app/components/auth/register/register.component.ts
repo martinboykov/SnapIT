@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   signup() {
     this.authService.signupUser(this.signupForm)
       .then(resolve => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
         this.toasterService.pop('success', 'Welcome');
       })
       .catch(error => this.errorMsg = error.message);

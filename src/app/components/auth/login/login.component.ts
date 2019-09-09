@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       .then((resolve) => {
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.toasterService.pop('success', 'Welcome!');
-        this.router.navigate([returnUrl || '/home']);
+        this.router.navigate([returnUrl || '/']);
       })
       .catch((error) => {
         this.toasterService.pop('error', 'Failed to login', 'Wrong Password or Email');
