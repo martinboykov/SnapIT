@@ -17,15 +17,15 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { UploadComponent } from './shared/components/upload/upload.component';
 
 const appRoutes: Routes = [
-  // { path: '', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'home', redirectTo: '/' },
   // { path: 'statistics', component: StatisticsComponent },
   // { path: 'about', component: AboutComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'image/:id', component: ImageDetailComponent },
-  { path: 'image/:id/edit', component: ImageEditComponent, canActivate: [AuthGuard]  },
-  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard]  },
+  { path: 'image/:id/edit', component: ImageEditComponent, canActivate: [AuthGuard] },
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile/:id', component: ProfileComponent },
